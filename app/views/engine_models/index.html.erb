@@ -1,0 +1,29 @@
+<h1>Listing engine_models</h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Created At</th>
+      <th colspan="3">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @engine_models.each do |engine_model| %>
+    <tr>
+      <td><%= engine_model.name %></td>
+      <td><%= engine_model.description %></td>
+      <td><%= engine_model.created_at.in_time_zone %></td>
+      <td>
+        <%= link_to 'Show', engine_model, :class => 'btn btn-mini'  %>
+        <%= link_to 'Edit', edit_engine_model_path(engine_model), :class => 'btn btn-primary btn-mini' %>
+        <%= link_to 'Destroy', engine_model, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger btn-mini' %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Engine model', new_engine_model_path %>
