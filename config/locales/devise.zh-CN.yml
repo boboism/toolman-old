@@ -37,7 +37,6 @@ zh-CN:
       signed_up_but_unconfirmed: '带有确认链接的信息已经发送到你的邮箱。请打开此链接来激活你的帐号'
       signed_up_but_inactive: '虽然您已经注册成功，但因为你的帐号还未激活，所以你暂时无法登录'
       signed_up_but_locked: '虽然您已经注册成功，但因为你的帐号已被锁定，所以你暂时无法登录'
-      inactive_signed_up: '虽然您已经注册成功,但因为%{reason},所以您依然无法登录.'
     unlocks:
       send_instructions: '几分钟后，您将收到一封解锁帐号的邮件.'
       unlocked: '您的帐号已成功解锁，您现在已登录.'

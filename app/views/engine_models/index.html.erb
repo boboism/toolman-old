@@ -1,12 +1,24 @@
-<h1>Listing engine_models</h1>
+<%- model_class = EngineModel.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>
 
-<table class="table table-striped table-bordered">
+<div class='operation-group'>
+  <div class='action-group'>
+    <%= link_to t('.new', default: t('helpers.links.new')), new_engine_model_path, class: 'btn-new' %>    
+  </div>
+</div>
+
+<table class="table-listed">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Created At</th>
-      <th colspan="3">Operations</th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
     </tr>
   </thead>
   <tbody>
@@ -14,16 +26,12 @@
     <tr>
       <td><%= engine_model.name %></td>
       <td><%= engine_model.description %></td>
-      <td><%= engine_model.created_at.in_time_zone %></td>
+      <td><%= l(engine_model.created_at) %></td>
       <td>
-        <%= link_to 'Show', engine_model, :class => 'btn btn-mini'  %>
-        <%= link_to 'Edit', edit_engine_model_path(engine_model), :class => 'btn btn-primary btn-mini' %>
-        <%= link_to 'Destroy', engine_model, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger btn-mini' %></td>
+        <%= link_to t('.show', default: t('helpers.links.show')), engine_model, class: 'btn-show' %>
+        <%= link_to t('.edit', default: t('helpers.links.edit')), edit_engine_model_path(engine_model), class: 'btn-edit' %>
+        <%= link_to t('.destroy', default: t('helpers.links.destroy')), engine_model, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Engine model', new_engine_model_path %>

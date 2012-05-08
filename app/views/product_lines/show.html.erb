@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
-
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('product_lines.index.title'), product_lines_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
 <p>
-  <b>Name:</b>
+  <b>><%= @product_line.class.human_attribute_name(:name) %>:</b>
   <%= @product_line.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>><%= @product_line.class.human_attribute_name(:description) %>:</b>
   <%= @product_line.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_product_line_path(@product_line) %> |
-<%= link_to 'Back', product_lines_path %>
+<%= link_to t('helpers.links.edit'), edit_product_line_path(@product_line), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), product_lines_path, class: 'btn-back' %>

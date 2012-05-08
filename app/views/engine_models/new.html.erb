@@ -1,5 +1,12 @@
-<h1>New engine_model</h1>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('engine_models.index.title'), engine_models_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', engine_models_path %>
+<%= link_to t('helpers.links.back') , engine_models_path, class: 'btn-back' %>
