@@ -1,0 +1,47 @@
+<%- model_class = Agency.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>
+
+<div class='operation-group'>
+  <div class='action-group'>
+    <%= link_to t('.new', default: t('helpers.links.new')), new_agency_path, class: 'btn-new' %>
+  </div>
+</div>
+
+<table class='table-listed'>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:company_name) %></th>
+      <th><%= model_class.human_attribute_name(:address) %></th>
+      <th><%= model_class.human_attribute_name(:postbox) %></th>
+      <th><%= model_class.human_attribute_name(:tel) %></th>
+      <th><%= model_class.human_attribute_name(:linkman) %></th>
+      <th><%= model_class.human_attribute_name(:website) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @agencies.each do |agency| %>
+      <tr>
+        <td><%= agency.name %></td>
+        <td><%= agency.company_name %></td>
+        <td><%= agency.address %></td>
+        <td><%= agency.postbox %></td>
+        <td><%= agency.tel %></td>
+        <td><%= agency.linkman %></td>
+        <td><%= agency.website %></td>
+        <td><%= l(agency.created_at) %></td>
+        <td>
+          <%= link_to t('.show', default: t('helpers.links.show')), agency, class: 'btn-show' %>
+          <%= link_to t('.edit', default: t('helpers.links.edit')), edit_agency_path(agency), class: 'btn-edit' %>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), agency, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

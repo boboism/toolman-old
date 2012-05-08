@@ -1,0 +1,2 @@
+module WorkshopProcessesHelper
+end

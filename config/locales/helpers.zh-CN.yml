@@ -1,0 +1,11 @@
+zh-CN:
+  helpers:
+    actions: '操作'
+    links:
+      edit: '编辑'
+      new: '新增'
+      show: '显示'
+      back: '返回'
+      destroy: '删除'
+      destroy_confirm: '请确认是否删除?'
+

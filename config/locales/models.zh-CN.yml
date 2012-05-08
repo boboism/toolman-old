@@ -1,0 +1,253 @@
+zh-CN:
+  activerecord:
+    models:
+      manufacturer:
+        one: '厂家'
+        other: '厂家'
+      agency:
+        one: '代理商'
+        other: '代理商'
+      workshop_process:
+        one: '机床工序'
+        other: '机床工序'
+      facility_code:
+        one: '设备代号'
+        other: '设备代号'
+      facility_type:
+        one: '设备形式'
+        other: '设备形式'
+      sub_category:
+        one: '部品名称'
+        other: '部品名称'
+      category:
+        one: '刀具分类'
+        other: '刀具分类'
+      product_line:
+        one: '生产线'
+        other: '生产线'
+      engine_model:
+        one: '加工机型'
+        other: '加工机型'
+      user:
+        one: '用户'
+        other: '用户'
+      purchase_info:
+        one: '采购信息'
+        other: '采购信息'
+      stocking_info:
+        one: '库存信息'
+        other: '库存信息'
+      technical_info:
+        one: '寿命参数'
+        other: '寿命参数'
+      physical_info:
+        one: '规格'
+        other: '规格'
+      tool_material:
+        one: '零件信息'
+        other: '零件信息'
+      archive_file:
+        one: '系统保存文件'
+        other: '系统保存文件'
+      toolsetting_drawing:
+        one: '调刀图'
+        other: '调刀图'
+      sharpen_drawing:
+        one: '磨刀图'
+        other: '磨刀图'
+      design_drawing:
+        one: '设计图'
+        other: '设计图'
+      assembly_tool_item:
+        one: '组合刀具子项'
+        other: '组合刀具子项'
+      assembly_tool:
+        one: '组合刀具'
+        other: '组合刀具'
+      in_service_tool_part:
+        one: '在用刀具零件'
+        other: '在用刀具零件'
+      retired_service_tool_part:
+        one: '报废刀具零件'
+        other: '报废刀具零件'
+      tool_part:
+        one: '刀具零件'
+        other: '刀具零件'
+      
+    attributes:
+      manufacturer:
+        id: 'ID'
+        name: '名称'
+        company_name: '公司全称'
+        address: '地址'
+        postbox: '邮箱'
+        tel: '电话'
+        linkman: '联系人'
+        website: '网址'
+        created_at: '创建时间'
+
+      agency:
+        id: 'ID'
+        name: '名称'
+        company_name: '公司全称'
+        address: '地址'
+        postbox: '邮箱'
+        tel: '电话'
+        linkman: '联系人'
+        website: '网址'
+        created_at: '创建时间'
+
+      workshop_process:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      facility_code:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      facility_type:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      sub_category:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      category:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      product_line:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      engine_model:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      user:
+        id: 'ID'
+        name: '名称'
+        email: '邮箱'
+        password: '密码'
+        remember_me: '在此电脑上记住我'
+        created_at: '创建时间'
+
+      purchase_info:
+        id: 'ID'
+        purchase_no: '采购单号'
+        manufacturer: '厂家'
+        agency: '代理商'
+        unit_price: '单价'
+        quantity: '采购数量'
+
+      stocking_info:
+        id: 'ID'
+        stock_no: '库存编码'
+        stack_no: '料架号'
+        current_quantity: '看板枚数'
+        max_quantity: '最大库存量'
+        min_quantity: '最小库存量'
+
+      physical_info:
+        id: 'ID'
+        first_diameter: 'D一阶直径'
+        step_length: '阶梯长'
+        second_diameter: 'D二阶直径'
+        slot_length: '排屑槽长'
+        gross_length: '刀具总长'
+        hilt_length: '刀柄加持直径'
+
+      technical_info:
+        id: 'ID'
+        sharpen_time: '设计研磨(转角)次数'
+        expected_quantity: '每次研磨设计寿命(件/长度)'
+        actual_quantity: '每次研磨实际寿命(件/长度)'
+
+      tool_material:
+        id: 'ID'
+        tool_no: '工具号'
+        category: '刀具类别'
+        sub_category: '部品名称'
+        model: '型号'
+        standardized: '标准品'
+        service_quantity: '启用数量'
+        sharpen_part: '是否需要研磨/转角'
+        technical_info: '寿命参数'
+        physical_info: '规格'
+        purchase_info: '采购信息'
+        stocking_info: '库存信息'
+        created_at: '创建时间'
+
+      archive_file:
+        id: 'ID'
+        type: '类型'
+        name: '文件名称'
+        file_suffix: '文件后缀'
+        size: '文件大小'
+        url: '保存地址'
+        created_at: '创建时间'
+
+      toolsetting_drawing:
+        id: 'ID'
+        name: '文件名称'
+        file_suffix: '文件后缀'
+        size: '文件大小'
+        url: '保存地址'
+        created_at: '创建时间'
+
+      sharpen_drawing:
+        id: 'ID'
+        name: '文件名称'
+        file_suffix: '文件后缀'
+        size: '文件大小'
+        url: '保存地址'
+        created_at: '创建时间'
+
+      design_drawing:
+        id: 'ID'
+        name: '文件名称'
+        file_suffix: '文件后缀'
+        size: '文件大小'
+        url: '保存地址'
+        created_at: '创建时间'
+        
+      assembly_tool_item:
+        id: 'ID'
+        assembly_tool: '所属组合刀具'
+        tool_material: '刀具物料数据'
+        quantity: '安装数量'
+        uom: '单位'
+
+      assembly_tool:
+        id: 'ID'
+        product_line: '生产线'
+        facility_type: '设备形式'
+        facility_code: '设备代码'
+        workshop_process: '机床号'
+        hilt_no: '刀柄组合管理号'
+        processing_position: '加工位置'
+        processing_hole: '加工孔号'
+        tool_part_quantity: '刃数'
+        rpm: 'S(r/min)'
+        first_velocity: 'V一阶(m/min)'
+        max_diameter: 'D(max)mm'
+        max_velocity: 'Vmax(m/min)'
+        feed_speed: 'F(mm/min)'
+        blade_quantity: 'fz(tooth)'
+        standard_setting_time: '标准调刀工时'
+        created_at: '创建时间'

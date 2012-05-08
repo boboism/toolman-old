@@ -1,0 +1,21 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('sub_categories.index.title'), sub_categories_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p>
+  <b>><%= @sub_category.class.human_attribute_name(:name) %>:</b>
+  <%= @sub_category.name %>
+</p>
+
+<p>
+  <b>><%= @sub_category.class.human_attribute_name(:description) %>:</b>
+  <%= @sub_category.description %>
+</p>
+
+
+<%= link_to t('helpers.links.edit'), edit_sub_category_path(@sub_category), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), sub_categories_path, class: 'btn-back' %>

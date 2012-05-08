@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product line:</b>
+  <%= @assembly_tool.product_line %>
+</p>
+
+<p>
+  <b>Facility type:</b>
+  <%= @assembly_tool.facility_type %>
+</p>
+
+<p>
+  <b>Facility code:</b>
+  <%= @assembly_tool.facility_code %>
+</p>
+
+<p>
+  <b>Workshop process:</b>
+  <%= @assembly_tool.workshop_process %>
+</p>
+
+<p>
+  <b>Hilt no:</b>
+  <%= @assembly_tool.hilt_no %>
+</p>
+
+<p>
+  <b>Processing position:</b>
+  <%= @assembly_tool.processing_position %>
+</p>
+
+<p>
+  <b>Processing hole:</b>
+  <%= @assembly_tool.processing_hole %>
+</p>
+
+<p>
+  <b>Tool part quantity:</b>
+  <%= @assembly_tool.tool_part_quantity %>
+</p>
+
+<p>
+  <b>Rpm:</b>
+  <%= @assembly_tool.rpm %>
+</p>
+
+<p>
+  <b>First velocity:</b>
+  <%= @assembly_tool.first_velocity %>
+</p>
+
+<p>
+  <b>Max diameter:</b>
+  <%= @assembly_tool.max_diameter %>
+</p>
+
+<p>
+  <b>Max velocity:</b>
+  <%= @assembly_tool.max_velocity %>
+</p>
+
+<p>
+  <b>Feed speed:</b>
+  <%= @assembly_tool.feed_speed %>
+</p>
+
+<p>
+  <b>Blade quantity:</b>
+  <%= @assembly_tool.blade_quantity %>
+</p>
+
+<p>
+  <b>Standard setting time:</b>
+  <%= @assembly_tool.standard_setting_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_assembly_tool_path(@assembly_tool) %> |
+<%= link_to 'Back', assembly_tools_path %>

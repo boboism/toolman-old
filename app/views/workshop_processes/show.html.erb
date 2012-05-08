@@ -1,0 +1,21 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('workshop_processes.index.title'), workshop_processes_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p>
+  <b>><%= @workshop_process.class.human_attribute_name(:name) %>:</b>
+  <%= @workshop_process.name %>
+</p>
+
+<p>
+  <b>><%= @workshop_process.class.human_attribute_name(:description) %>:</b>
+  <%= @workshop_process.description %>
+</p>
+
+
+<%= link_to t('helpers.links.edit'), edit_workshop_process_path(@workshop_process), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), workshop_processes_path, class: 'btn-back' %>

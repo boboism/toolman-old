@@ -1,0 +1,54 @@
+<%= simple_form_for(setup_tool_material(@tool_material), html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <div class='header-info'><%= t('.base_info') %></div>
+    <%= f.input :tool_no %>
+    <%= f.association :category, as: :radio_buttons, item_wrapper_class: :inline %>
+    <%= f.association :sub_category %>
+    <%= f.input :model %>
+    <%= f.input :standardized %>
+    <%= f.input :service_quantity %>
+    <%= f.input :sharpen_part %>
+
+    <div class='header-info'><%= t('.technical_info') %></div>
+    <%= f.simple_fields_for :technical_info do |ti| %>
+      <%= ti.input :sharpen_time %>
+      <%= ti.input :expected_quantity %>
+    <% end %>
+
+    <div class='header-info'><%= t('.purchase_info') %></div>
+    <%= f.simple_fields_for :purchase_info do |pui| %>
+      <%= pui.input :purchase_no %>
+      <%= pui.association :manufacturer %>
+      <%= pui.association :agency %>
+      <%= pui.input :unit_price %>
+      <%= pui.input :quantity %>
+    <% end %>
+
+    <div class='header-info'><%= t('.stocking_info') %></div>
+    <%= f.simple_fields_for :stocking_info do |si| %>
+      <%= si.input :stock_no %>
+      <%= si.input :stack_no %>
+      <%= si.input :current_quantity %>
+      <%= si.input :max_quantity %>
+      <%= si.input :min_quantity %>
+    <% end %>
+
+    <div class='header-info'><%= t('.physical_info') %></div>
+    <%= f.simple_fields_for :physical_info do |phi| %>
+      <%= phi.input :first_diameter %>
+      <%= phi.input :step_length %>
+      <%= phi.input :second_diameter %>
+      <%= phi.input :slot_length %>
+      <%= phi.input :gross_length %>
+      <%= phi.input :hilt_length %>
+    <% end %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

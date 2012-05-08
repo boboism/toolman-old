@@ -1,0 +1,25 @@
+<%= simple_form_for(@assembly_tool, html: { class: 'form-horizontal' })  do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :product_line %>
+    <%= f.association :facility_type %>
+    <%= f.association :facility_code %>
+    <%= f.association :workshop_process %>
+    <%= f.input :hilt_no %>
+    <%= f.input :processing_position %>
+    <%= f.input :processing_hole %>
+    <%= f.input :tool_part_quantity %>
+    <%= f.input :rpm %>
+    <%= f.input :first_velocity %>
+    <%= f.input :max_diameter %>
+    <%= f.input :max_velocity %>
+    <%= f.input :feed_speed %>
+    <%= f.input :blade_quantity %>
+    <%= f.input :standard_setting_time %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

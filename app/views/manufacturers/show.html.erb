@@ -1,0 +1,45 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('manufacturers.index.title'), manufacturers_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:name) %>:</b>
+  <%= @manufacturer.name %>
+</p>
+
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:company_name) %>:</b>
+  <%= @manufacturer.company_name %>
+</p>
+
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:address) %>:</b>
+  <%= @manufacturer.address %>
+</p>
+
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:postbox) %>:</b>
+  <%= @manufacturer.postbox %>
+</p>
+
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:tel) %>:</b>
+  <%= @manufacturer.tel %>
+</p>
+
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:linkman) %>:</b>
+  <%= @manufacturer.linkman %>
+</p>
+
+<p>
+  <b>><%= @manufacturer.class.human_attribute_name(:website) %>:</b>
+  <%= @manufacturer.website %>
+</p>
+
+<%= link_to t('helpers.links.edit'), edit_manufacturer_path(@manufacturer), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), manufacturers_path, class: 'btn-back' %>

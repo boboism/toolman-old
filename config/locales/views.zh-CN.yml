@@ -1,0 +1,150 @@
+zh-CN:
+  views:
+    home:
+      title: '控制台'
+    application:
+      title: '广汽乘用车刀具管理系统(开发环境)'
+      login: '登录'
+      logout: '退出'
+
+  home:
+    index:
+      masterdata:
+        title: '基础数据维护'
+        manufacturer: '厂家'
+        workshop_process: '机床工序'
+        agency: '代理商'
+        facility_code: '设备代码'
+        facility_type: '设备形式'
+        product_line: '生产线'
+        category: '刀具分类'
+        sub_category: '部品名称'
+        engine_model: '加工机型'
+        tool_material: '刀具零件'
+
+      sharpen:
+        title: '刃磨管理'
+        record_manhour: '记录工时'
+      access_control:
+        title: '权限控制'
+        user: '用户'
+
+  manufacturers:
+    index:
+      title: '厂家列表'
+    new:
+      title: '新增厂家'
+    show:
+      title: '显示厂家'
+    edit:
+      title: '编辑厂家'
+
+  agencies:
+    index:
+      title: '代理商列表'
+    new:
+      title: '新增代理商'
+    show:
+      title: '显示代理商'
+    edit:
+      title: '编辑代理商'
+
+  workshop_processes:
+    index:
+      title: '机床工序列表'
+    new:
+      title: '新增机床工序'
+    show:
+      title: '显示机床工序'
+    edit:
+      title: '编辑机床工序'
+
+  facility_codes:
+    index:
+      title: '设备代码列表'
+    new:
+      title: '新增设备代码'
+    show:
+      title: '显示设备代码'
+    edit:
+      title: '编辑设备代码'
+
+  facility_types:
+    index:
+      title: '设备形式列表'
+    new:
+      title: '新增设备形式'
+    show:
+      title: '显示设备形式'
+    edit:
+      title: '编辑设备形式'
+
+  sub_categories:
+    index:
+      title: '部品名称列表'
+    new:
+      title: '新增部品名称'
+    show:
+      title: '显示部品名称'
+    edit:
+      title: '编辑部品名称'
+
+  categories:
+    index:
+      title: '刀具分类列表'
+    new:
+      title: '新增刀具分类'
+    show:
+      title: '显示刀具分类'
+    edit:
+      title: '编辑刀具分类'
+
+  product_lines:
+    index:
+      title: '生产线列表'
+    new:
+      title: '新增生产线'
+    show:
+      title: '显示生产线'
+    edit:
+      title: '编辑生产线'
+
+  engine_models:
+    index:
+      title: '加工机型列表'
+    new:
+      title: '新增加工机型'
+    show:
+      title: '显示加工机型'
+    edit:
+      title: '编辑加工机型'
+
+  users:
+    index:
+      title: '用户列表'
+
+  tool_materials:
+    index:
+      title: '刀具零件信息列表'
+    new:
+      title: '新增刀具零件信息'
+    show:
+      title: '显示刀具零件信息'
+    edit: 
+      title: '编辑刀具零件信息'
+    form:
+      base_info: '基本信息'
+      technical_info: '寿命参数'
+      physical_info: '规格参数'
+      stocking_info: '库存信息'
+      purchase_info: '采购信息'
+
+  assembly_tools:
+    index:
+      title: '组合刀具列表'
+    new:
+      title: '新增组合刀具信息'
+    show:
+      title: '显示组合刀具信息'
+    edit:
+      title: '编辑组合刀具信息'
