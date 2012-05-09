@@ -24,24 +24,43 @@
 <table class='table-menued'>
   <thead>
     <tr>
+      <th colspan='7'><%= t('.tool_management.title', default: 'Tool Management') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to t('.tool_management.tool_material', default: 'Tool Material'), tool_materials_path %></td>
+      <td><%= link_to t('.tool_management.assembly_tool', default: 'Assmebly Tool'), assembly_tools_path %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class='table-menued'>
+  <thead>
+    <tr>
       <th colspan='7'><%= t('.masterdata.title', default: 'Master Data Maintenance') %></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to t('.masterdata.tool_material', default: 'Tool Material'), tool_materials_path %></td>
       <td><%= link_to t('.masterdata.engine_model', default: 'Engine Model'), engine_models_path %></td>
       <td><%= link_to t('.masterdata.product_line', default: 'Product Line'), product_lines_path %></td>
       <td><%= link_to t('.masterdata.category', default: 'Category'), categories_path %></td>
       <td><%= link_to t('.masterdata.sub_category', default: 'SubCategory'), sub_categories_path %></td>
       <td><%= link_to t('.masterdata.facility_type', default: 'Facility Type'), facility_types_path %></td>
       <td><%= link_to t('.masterdata.facility_code', default: 'Facility Code'), facility_codes_path %></td>
+      <td><%= link_to t('.masterdata.workshop_process', default: 'Workshop Process'), workshop_processes_path %></td>
     </tr>
     <tr>
-      <td><%= link_to t('.masterdata.workshop_process', default: 'Workshop Process'), workshop_processes_path %></td>
       <td><%= link_to t('.masterdata.manufacturer', default: 'Manufacturer'), manufacturers_path %></td>
       <td><%= link_to t('.masterdata.workshop_process', default: 'Workshop Process'), workshop_processes_path %></td>
       <td><%= link_to t('.masterdata.agency', default: 'Agency'), agencies_path %></td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>

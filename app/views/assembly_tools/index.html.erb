@@ -16,12 +16,14 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:product_line) %></th>
+      <th><%= model_class.human_attribute_name(:engine_models) %></th>
       <th><%= model_class.human_attribute_name(:facility_type) %></th>
       <th><%= model_class.human_attribute_name(:facility_code) %></th>
       <th><%= model_class.human_attribute_name(:workshop_process) %></th>
       <th><%= model_class.human_attribute_name(:hilt_no) %></th>
       <th><%= model_class.human_attribute_name(:processing_position) %></th>
       <th><%= model_class.human_attribute_name(:processing_hole) %></th>
+<!--
       <th><%= model_class.human_attribute_name(:tool_part_quantity) %></th>
       <th><%= model_class.human_attribute_name(:rpm) %></th>
       <th><%= model_class.human_attribute_name(:first_velocity) %></th>
@@ -29,6 +31,7 @@
       <th><%= model_class.human_attribute_name(:max_velocity) %></th>
       <th><%= model_class.human_attribute_name(:feed_speed) %></th>
       <th><%= model_class.human_attribute_name(:blade_quantity) %></th>
+-->      
       <th><%= model_class.human_attribute_name(:standard_setting_time) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= t('.actions', default: t('helpers.actions')) %></th>
@@ -38,12 +41,14 @@
     <% @assembly_tools.each do |assembly_tool| %>
       <tr>
         <td><%= assembly_tool.product_line %></td>
+        <td><%= raw li_engine_models(assembly_tool) %></td>
         <td><%= assembly_tool.facility_type %></td>
         <td><%= assembly_tool.facility_code %></td>
         <td><%= assembly_tool.workshop_process %></td>
         <td><%= assembly_tool.hilt_no %></td>
         <td><%= assembly_tool.processing_position %></td>
         <td><%= assembly_tool.processing_hole%></td>
+<!--        
         <td><%= assembly_tool.tool_part_quantity %></td>
         <td><%= assembly_tool.rpm %></td>
         <td><%= assembly_tool.first_velocity %></td>
@@ -51,6 +56,7 @@
         <td><%= assembly_tool.max_velocity %></td>
         <td><%= assembly_tool.feed_speed %></td>
         <td><%= assembly_tool.blade_quantity %></td>
+-->        
         <td><%= assembly_tool.standard_setting_time %></td>
         <td><%= l(assembly_tool.created_at) %></td>
         <td>

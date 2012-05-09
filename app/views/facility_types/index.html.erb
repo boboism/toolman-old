@@ -26,7 +26,7 @@
       <tr>
         <td><%= facility_type.name %></td>
         <td><%= facility_type.description %></td>
-        <td><%= l(facility_type.created_at.strftime) %></td>
+        <td><%= l(facility_type.created_at) %></td>
         <td>
           <%= link_to t('.show', default: t('helpers.links.show')), facility_type, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_facility_type_path(facility_type), class: 'btn-edit' %>

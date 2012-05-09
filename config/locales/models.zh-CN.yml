@@ -232,6 +232,7 @@ zh-CN:
         tool_material: '刀具物料数据'
         quantity: '安装数量'
         uom: '单位'
+        standard_sharpen_time: '标准磨刀工时'
 
       assembly_tool:
         id: 'ID'
@@ -242,6 +243,7 @@ zh-CN:
         hilt_no: '刀柄组合管理号'
         processing_position: '加工位置'
         processing_hole: '加工孔号'
+        engine_models: '发动机型号'
         tool_part_quantity: '刃数'
         rpm: 'S(r/min)'
         first_velocity: 'V一阶(m/min)'
@@ -251,3 +253,4 @@ zh-CN:
         blade_quantity: 'fz(tooth)'
         standard_setting_time: '标准调刀工时'
         created_at: '创建时间'
+        assembly_tool_items: '组合刀具子项'

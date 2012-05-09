@@ -1,80 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Product line:</b>
-  <%= @assembly_tool.product_line %>
-</p>
-
-<p>
-  <b>Facility type:</b>
-  <%= @assembly_tool.facility_type %>
-</p>
-
-<p>
-  <b>Facility code:</b>
-  <%= @assembly_tool.facility_code %>
-</p>
-
-<p>
-  <b>Workshop process:</b>
-  <%= @assembly_tool.workshop_process %>
-</p>
-
-<p>
-  <b>Hilt no:</b>
-  <%= @assembly_tool.hilt_no %>
-</p>
-
-<p>
-  <b>Processing position:</b>
-  <%= @assembly_tool.processing_position %>
-</p>
-
-<p>
-  <b>Processing hole:</b>
-  <%= @assembly_tool.processing_hole %>
-</p>
-
-<p>
-  <b>Tool part quantity:</b>
-  <%= @assembly_tool.tool_part_quantity %>
-</p>
-
-<p>
-  <b>Rpm:</b>
-  <%= @assembly_tool.rpm %>
-</p>
-
-<p>
-  <b>First velocity:</b>
-  <%= @assembly_tool.first_velocity %>
-</p>
-
-<p>
-  <b>Max diameter:</b>
-  <%= @assembly_tool.max_diameter %>
-</p>
-
-<p>
-  <b>Max velocity:</b>
-  <%= @assembly_tool.max_velocity %>
-</p>
-
-<p>
-  <b>Feed speed:</b>
-  <%= @assembly_tool.feed_speed %>
-</p>
-
-<p>
-  <b>Blade quantity:</b>
-  <%= @assembly_tool.blade_quantity %>
-</p>
-
-<p>
-  <b>Standard setting time:</b>
-  <%= @assembly_tool.standard_setting_time %>
-</p>
-
-
-<%= link_to 'Edit', edit_assembly_tool_path(@assembly_tool) %> |
-<%= link_to 'Back', assembly_tools_path %>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('assembly_tools.index.title'), assembly_tools_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @assembly_tool.class.human_attribute_name(:product_line) %>:</b><%= @assembly_tool.product_line %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:facility_type) %>:</b><%= @assembly_tool.facility_type %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:facility_code) %>:</b><%= @assembly_tool.facility_code %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:workshop_process) %>:</b><%= @assembly_tool.workshop_process %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:engine_models) %>:</b><%= raw li_engine_models(@assembly_tool) %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:hilt_no) %>:</b><%= @assembly_tool.hilt_no %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:processing_position) %>:</b><%= @assembly_tool.processing_position %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:processing_hole) %>:</b><%= @assembly_tool.processing_hole %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:tool_part_quantity) %>:</b><%= @assembly_tool.tool_part_quantity %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:rpm) %>:</b><%= @assembly_tool.rpm %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:first_velocity) %>:</b><%= @assembly_tool.first_velocity %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:max_diameter) %>:</b><%= @assembly_tool.max_diameter %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:max_velocity) %>:</b><%= @assembly_tool.max_velocity %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:feed_speed) %>:</b><%= @assembly_tool.feed_speed %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:blade_quantity) %>:</b><%= @assembly_tool.blade_quantity %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:standard_setting_time) %>:</b><%= @assembly_tool.standard_setting_time %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:assembly_tool_items) %>:</b><br><ol>
+<% @assembly_tool.assembly_tool_items.each do |item| %>
+  <li>
+  <b><%= item.class.human_attribute_name(:tool_material) %>:</b><%= item.tool_material %><br>
+  <b><%= item.class.human_attribute_name(:quantity) %>:</b><%= item.quantity %><br>
+  <b><%= item.class.human_attribute_name(:uom) %>:</b><%= item.uom %><br>
+  <b><%= item.class.human_attribute_name(:standard_sharpen_time) %>:</b><%= item.standard_sharpen_time %><br>
+  </li>
+<% end %>
+</ol></p>
+<%= link_to t('helpers.links.edit'), edit_assembly_tool_path(@assembly_tool), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), assembly_tools_path, class: 'btn-back' %>

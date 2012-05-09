@@ -1,4 +1,4 @@
-<%= simple_form_for(@assembly_tool, html: { class: 'form-horizontal' })  do |f| %>
+<%= simple_form_for(setup_assembly_tool(@assembly_tool), html: { class: 'form-horizontal' })  do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -6,6 +6,7 @@
     <%= f.association :facility_type %>
     <%= f.association :facility_code %>
     <%= f.association :workshop_process %>
+    <%= f.association :engine_models, as: :check_boxes, multiple: true %>
     <%= f.input :hilt_no %>
     <%= f.input :processing_position %>
     <%= f.input :processing_hole %>
@@ -17,6 +18,13 @@
     <%= f.input :feed_speed %>
     <%= f.input :blade_quantity %>
     <%= f.input :standard_setting_time %>
+    <%= f.simple_fields_for :assembly_tool_items do |item| %>
+      <div class='header-info'><%= t('.assembly_tool_item') %></div>
+      <%= item.association :tool_material %>
+      <%= item.input :quantity %>
+      <%= item.input :uom %>
+      <%= item.input :standard_sharpen_time %>
+    <% end %>
   </div>
 
   <div class="form-actions">

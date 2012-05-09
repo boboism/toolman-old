@@ -20,8 +20,10 @@ zh-CN:
         category: '刀具分类'
         sub_category: '部品名称'
         engine_model: '加工机型'
+      tool_management:
+        title: '刀具管理'
         tool_material: '刀具零件'
-
+        assembly_tool: '组合刀具'
       sharpen:
         title: '刃磨管理'
         record_manhour: '记录工时'
@@ -148,3 +150,5 @@ zh-CN:
       title: '显示组合刀具信息'
     edit:
       title: '编辑组合刀具信息'
+    form:
+      assembly_tool_item: '组合刀具子项'

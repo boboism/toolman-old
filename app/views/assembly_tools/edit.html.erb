@@ -1,6 +1,13 @@
-<h1>Editing assembly_tool</h1>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('assembly_tools.index.title'), assembly_tools_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @assembly_tool %> |
-<%= link_to 'Back', assembly_tools_path %>
+<%= link_to t('helpers.links.show'), @assembly_tool, class: 'btn-show' %>
+<%= link_to t('helpers.links.back'), assembly_tools_path, class: 'btn-back' %>
