@@ -8,4 +8,7 @@ zh-CN:
       back: '返回'
       destroy: '删除'
       destroy_confirm: '请确认是否删除?'
-
+      confirm: '确认'
+      remind: '提醒'
+      xls: '导出'
+      print: '打印'

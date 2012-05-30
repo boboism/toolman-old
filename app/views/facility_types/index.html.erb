@@ -27,10 +27,10 @@
         <td><%= facility_type.name %></td>
         <td><%= facility_type.description %></td>
         <td><%= l(facility_type.created_at) %></td>
-        <td>
+        <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), facility_type, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_facility_type_path(facility_type), class: 'btn-edit' %>
-          <%= link_to t('.destroy', default: t('helpers.links.destroy')), facility_type, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></td>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), facility_type, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></div></td>
         </td>
       </tr>
     <% end %>

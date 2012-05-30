@@ -23,7 +23,7 @@
 <p><b><%= @assembly_tool.class.human_attribute_name(:blade_quantity) %>:</b><%= @assembly_tool.blade_quantity %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:standard_setting_time) %>:</b><%= @assembly_tool.standard_setting_time %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:assembly_tool_items) %>:</b><br><ol>
-<% @assembly_tool.assembly_tool_items.each do |item| %>
+<% @assembly_tool.items.each do |item| %>
   <li>
   <b><%= item.class.human_attribute_name(:tool_material) %>:</b><%= item.tool_material %><br>
   <b><%= item.class.human_attribute_name(:quantity) %>:</b><%= item.quantity %><br>

@@ -6,9 +6,15 @@ zh-CN:
       title: '广汽乘用车刀具管理系统(开发环境)'
       login: '登录'
       logout: '退出'
+      edit_account: '用户:%{name}'
+      company:
+        title: '广州汽车集团乘用车有限公司'
 
   home:
     index:
+      quality:
+        title: '质量管理'
+        quality_deviation_report: '质量速报表'
       masterdata:
         title: '基础数据维护'
         manufacturer: '厂家'
@@ -20,13 +26,17 @@ zh-CN:
         category: '刀具分类'
         sub_category: '部品名称'
         engine_model: '加工机型'
+        setting_type: '调刀方式'
+        setting_device: '调刀设备'
+        sharpen_device: '磨床'
       tool_management:
         title: '刀具管理'
         tool_material: '刀具零件'
         assembly_tool: '组合刀具'
       sharpen:
         title: '刃磨管理'
-        record_manhour: '记录工时'
+        tunning_work_order: '工时工单'
+        scrap: '报废处理'
       access_control:
         title: '权限控制'
         user: '用户'
@@ -121,29 +131,78 @@ zh-CN:
     edit:
       title: '编辑加工机型'
 
+  setting_devices:
+    index:
+      title: '调刀设备列表'
+    new:
+      title: '新建调刀设备'
+    show:
+      title: '显示调刀设备'
+    edit:
+      title: '编辑调刀设备'
+
+  setting_types:
+    index:
+      title: '调刀方式列表'
+    new:
+      title: '新建调刀方式'
+    show:
+      title: '显示调刀方式'
+    edit:
+      title: '编辑调刀方式'
+
+  sharpen_devices:
+    index:
+      title: '磨床列表'
+    new:
+      title: '新建磨床'
+    show:
+      title: '显示磨床'
+    edit:
+      title: '编辑磨床'
+
   users:
     index:
       title: '用户列表'
+    edit:
+      title: '编辑用户'
 
   tool_materials:
     index:
       title: '刀具零件信息列表'
+      index_in_service_tool_parts: '在用明细'
     new:
       title: '新增刀具零件信息'
     show:
       title: '显示刀具零件信息'
+
     edit: 
       title: '编辑刀具零件信息'
     form:
       base_info: '基本信息'
       technical_info: '寿命参数'
       physical_info: '规格参数'
-      stocking_info: '库存信息'
+      stocking_info: 'GPS库存'
       purchase_info: '采购信息'
+    print:
+      title: '刀具零件卡片 %{tool_material}'
+
+  serving_parts:
+    index:
+      title: '在用刀具零件列表'
+      mass_create: '初始化'
+      search_part_no: '填入刀具号打印,多个号码用逗号隔开'
+    new:
+      title: '新增在用刀具零件'
+    show:
+      title: '显示在用刀具零件'
+    edit:
+      title: '编辑在用刀具零件'
 
   assembly_tools:
     index:
       title: '组合刀具列表'
+      index_assembly_tool_items: '子项信息'
     new:
       title: '新增组合刀具信息'
     show:
@@ -152,3 +211,88 @@ zh-CN:
       title: '编辑组合刀具信息'
     form:
       assembly_tool_item: '组合刀具子项'
+
+  assembly_tool_items:
+    index:
+      title: '组合刀具子项列表'
+    new:
+      title: '新建组合刀具子项信息'
+    show:
+      title: '显示组合刀具子项信息'
+    edit:
+      title: '编辑组合刀具子项信息'
+
+  tunning_work_orders:
+    index:
+      title: '工时工单列表'
+      index_setting_item: '调刀明细'
+      index_sharpen_item: '磨刀明细'
+      new-remind: '点击【新建】按钮后，选择组合刀具后提交，再继续编辑调刀工时以及磨刀工时'
+      confirm-remind: '在确认前，请先提供有效工时信息'
+    new:
+      title: '新建工时工单'
+    show:
+      title: '显示工时工单'
+      setting_item: '调刀工时'
+      sharpen_item: '磨刀工时 #%{index}'
+    edit:
+      title: '编辑工时工单'
+    form:
+      setting_item: '调刀工时'
+      sharpen_item: '磨刀工时'
+  tunning_work_order_setting_items:
+    index:
+      title: '工时工单调刀明细列表'
+    show:
+      title: '显示工时工单调刀明细'
+    edit:
+      title: '编辑工时工单调刀明细'
+    new:
+      title: '新建工时工单调刀明细'
+  scrap_orders:
+    index:
+      title: '报废单列表'
+      replace: '更换零件'
+    show:
+      title: '显示报废单'
+      edit-remind: '在新建【报废单】并且选择了【组合刀具】后，可以点击编辑来进一步选择要报废的【刀具零件】。'
+    edit:
+      title: '编辑报废单'
+    new:
+      title: '新建报废单'
+    replace:
+      title: '更换报废零件'
+  scrap_order_items:
+    index:
+      title: '报废单明细列表'
+    show:
+      title: '显示报废单明细'
+    edit:
+      title: '编辑报废单明细'
+    new:
+      title: '新建报废单明细'
+  
+  quality_categories:
+    index:
+      title: '速报表质量分类列表'
+    show:
+      title: '显示速报表质量分类'
+    edit:
+      title: '编辑速报表质量分类'
+    new:
+      title: '新建速报表质量分类'
+  quality_deviation_reports:
+    index:
+      title: '品质速报表列表'
+      to: '至'
+    show:
+      title: '显示品质速报表'
+    edit:
+      title: '编辑品质速报表'
+    new:
+      title: '新建品质速报表'
+
+  tool_cards:
+    index:
+      title: '刀具卡片列表'
+

@@ -80,4 +80,18 @@ class AssemblyToolsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def confirm
+    @assembly_tool = AssemblyTool.find(params[:id])
+    
+    respond_to do |format|
+      if @assembly_tool.confirm! && @assembly_tool.save
+        format.html { redirect_to assembly_tools_url, :notice => 'Assembly Tool was successfully confirmed' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to assembly_tools_url, notice: 'Assembly Tool was NOT confirmed' }
+        format.json { head json: @assembly_tool.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

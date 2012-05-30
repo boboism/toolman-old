@@ -19,6 +19,9 @@ zh-CN:
       sub_category:
         one: '部品名称'
         other: '部品名称'
+      quality_category:
+        one: '速报表质量分类'
+        other: '速报表质量分类'
       category:
         one: '刀具分类'
         other: '刀具分类'
@@ -35,8 +38,8 @@ zh-CN:
         one: '采购信息'
         other: '采购信息'
       stocking_info:
-        one: '库存信息'
-        other: '库存信息'
+        one: 'GPS库存信息'
+        other: 'GPS库存信息'
       technical_info:
         one: '寿命参数'
         other: '寿命参数'
@@ -73,8 +76,56 @@ zh-CN:
       tool_part:
         one: '刀具零件'
         other: '刀具零件'
-      
+      setting_device:
+        one: '调刀设备'
+        other: '调刀设备'
+      setting_type:
+        one: '调刀方式'
+        other: '调刀方式'
+      sharpen_device:
+        one: '磨床'
+        other: '磨床'
+      tunning_work_order:
+        one: '工时工单'
+        other: '工时工单'
+      tunning_work_order_setting_item:
+        one: '工时工单调刀明细'
+        other: '工时工单调刀明细'
+      scrap_order:
+        one: '报废单'
+        other: '报废单'
+      scrap_order_item:
+        one: '报废单明细'
+        other: '报废单明细'
     attributes:
+      tunning_work_order:
+        assembly_tool: '组合刀具'
+        doc_user: '记录人'
+        doc_date: '记录日期'
+        completed: '已记录工时'
+        confirmed: '已确认'
+        setting_item: '调刀工时'
+        sharpen_item: '磨刀工时'
+        created_at: '创建时间'
+      tunning_work_order_setting_item:
+        id: 'ID'
+        setting_device: '调试设备'
+        setting_type: '调试方式'
+        expected_time: '标准工时'
+        actual_time: '实际工时'
+        tunning_work_order: '工时工单'
+        operator: '执行人'
+        created_at: '创建时间'
+      tunning_work_order_sharpen_item:
+        id: 'ID'
+        tool_part: '刀具零件'
+        sharpen_device: '磨床'
+        operator: '操作人'
+        expected_quantity: '设计加工寿命'
+        expected_time: '设计研磨工时'
+        actual_quantity: '实际加工寿命'
+        actual_time: '实际研磨工时'
+        created_at: '创建时间'
       manufacturer:
         id: 'ID'
         name: '名称'
@@ -141,10 +192,13 @@ zh-CN:
 
       user:
         id: 'ID'
-        name: '名称'
+        name: '工号'
         email: '邮箱'
         password: '密码'
         remember_me: '在此电脑上记住我'
+        password_confirmation: '密码确认'
+        current_password: '当前密码'
+        nickname: '姓名'
         created_at: '创建时间'
 
       purchase_info:
@@ -187,10 +241,12 @@ zh-CN:
         standardized: '标准品'
         service_quantity: '启用数量'
         sharpen_part: '是否需要研磨/转角'
+        base_info: '基础信息'
         technical_info: '寿命参数'
         physical_info: '规格'
         purchase_info: '采购信息'
-        stocking_info: '库存信息'
+        stocking_info: 'GPS库存信息'
+        record_description: '%{tool_no} %{model}'
         created_at: '创建时间'
 
       archive_file:
@@ -232,7 +288,13 @@ zh-CN:
         tool_material: '刀具物料数据'
         quantity: '安装数量'
         uom: '单位'
+        uom_default: '个'
         standard_sharpen_time: '标准磨刀工时'
+        assembled: '已安装'
+        serving_parts: '分配的刀具'
+        sharpen_device: '磨床'
+        created_at: '创建时间'
+        item_description: '%{quantity} %{uom} %{name}'
 
       assembly_tool:
         id: 'ID'
@@ -244,6 +306,8 @@ zh-CN:
         processing_position: '加工位置'
         processing_hole: '加工孔号'
         engine_models: '发动机型号'
+        assembled: '完成安装'
+        confirmed: '已确认'
         tool_part_quantity: '刃数'
         rpm: 'S(r/min)'
         first_velocity: 'V一阶(m/min)'
@@ -253,4 +317,111 @@ zh-CN:
         blade_quantity: 'fz(tooth)'
         standard_setting_time: '标准调刀工时'
         created_at: '创建时间'
-        assembly_tool_items: '组合刀具子项'
+        items: '组合刀具子项'
+
+      in_service_tool_part:
+        id: 'ID'
+        part_no: '刀具号'
+        category: '刀具分类'
+        sub_category: '部品名称'
+        model: '型号'
+        expected_quantity: '设计单次加工件数'
+        expected_sharpen_time: '设计可研磨(转角)次数'
+        actual_quantity: '实际加工总件数'
+        actual_sharpen_time: '实际研磨(转角)总次数'
+        tool_material: '刀具零件'
+        created_at: '创建时间'
+
+      tool_part:
+        id: 'ID'
+        part_no: '刀具号'
+        category: '刀具分类'
+        sub_category: '部品名称'
+        model: '型号'
+        expected_quantity: '设计单次加工件数'
+        expected_sharpen_time: '设计可研磨(转角)次数'
+        actual_quantity: '已加工总件数'
+        actual_sharpen_time: '已研磨(转角)总次数'
+        tool_material: '刀具零件'
+        record_description: '%{tool_no} %{model}'
+        created_at: '创建时间'
+
+      setting_device:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      setting_type:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+      
+      sharpen_device:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        created_at: '创建时间'
+
+      scrap_order:
+        id: 'ID'
+        assembly_tool: '组合刀具'
+        doc_user: '记录人'
+        doc_date: '记录日期'
+        confirmed: '已确认'
+        items: '报废明细'
+        replace_tool_parts: '新刀具零件'
+        scrap_tool_parts: '报废刀具零件'
+        scrap_type: '报废类型'
+        scrap_reason: '备注'
+        scrap_quantity: '报废数量'
+        created_at: '创建时间'
+
+      scrap_order_item:
+        id: 'ID'
+        scrap_tool_part: '报废零件'
+        replace_tool_part: '替换零件'
+        created_at: '创建时间'
+
+      quality_category:
+        id: 'ID'
+        name: '名称'
+        description: '描述'
+        quality_type: '类型'
+        created_at: '创建时间'
+        types:
+          '1': '分类1'
+          '2': '分类2'
+          '3': '发生时'
+          '4': '损失的种类'
+          '5': '损失分类'
+          '6': '损失履历'
+      quality_deviation_report:
+        id: 'ID'
+        doc_no: '文档编号'
+        doc_date: '记录日期'
+        category: '分类'
+        category_1: '分类1'
+        category_2: '分类2'
+        category_3: '发生时'
+        category_4: '损失的种类'
+        category_5: '损失的分类'
+        category_6: '损失的履历'
+        title: '报告内容'
+        happen_start_time: '发生开始时间'
+        happen_start_team: '发生开始班组'
+        happen_end_time: '发生结束时间'
+        happen_end_team: '发生结束班组'
+        happen_time: '发生时间'
+        stocking_quantity: '在库数量'
+        bad_quantity: '不良数量'
+        doc_user: '报告者'
+        doc_user_type: '报告者职能'
+        assembly_tool: '设备编号'
+        reason: '5W'
+        reason_type: '主要原因'
+        solution: '处理内容'
+        suggestion: '领导指导事项'
+        created_at: '创建时间'
+        confirmed: '已确认'

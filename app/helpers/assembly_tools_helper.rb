@@ -1,6 +1,6 @@
 module AssemblyToolsHelper
   def setup_assembly_tool(assembly_tool)
-    5.times { assembly_tool.assembly_tool_items.build }
+    5.times { assembly_tool.items.build }
     assembly_tool
   end
 

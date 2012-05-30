@@ -27,10 +27,10 @@
         <td><%= category.name %></td>
         <td><%= category.description %></td>
         <td><%= l(category.created_at) %></td>
-        <td>
+        <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), category, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_category_path(category), class: 'btn-edit' %>
-          <%= link_to t('.destroy', default: t('helpers.links.destroy')), category, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></td>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), category, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></div></td>
   </tr>
 <% end %>
 </table>

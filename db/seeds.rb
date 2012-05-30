@@ -1,8 +1,8 @@
 # encoding: utf-8
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'admin', :email => 'eam@gacmotor.com', :password => '123456', :password_confirmation => '123456'
+user = User.create! :name => 'admin', :nickname => '系统管理员', :email => 'eam@gacmotor.com', :password => '123456', :password_confirmation => '123456'
 puts 'New user created: ' << user.name
-user2 = User.create! :name => '101048', :email => 'sujb@gacmotor.com', :password => '123456', :password_confirmation => '123456'
+user2 = User.create! :name => '101048', :nickname => '苏建波', :email => 'sujb@gacmotor.com', :password => '123456', :password_confirmation => '123456'
 puts 'New user created: ' << user2.name
 user.add_role :admin
 
@@ -181,3 +181,57 @@ agency15 = Agency.create! :name => '玛帕'
 agency16 = Agency.create! :name => '东莞东隆'
 agency17 = Agency.create! :name => 'EFD'
 agency18 = Agency.create! :name => '尤希路'
+
+puts 'SETTING SETTING DEVICE'
+setdev12 = SettingDevice.create! :name => '无'
+setdev1 = SettingDevice.create! :name => 'APE40A'
+setdev2 = SettingDevice.create! :name => 'CM-2'
+setdev3 = SettingDevice.create! :name => 'EWAG'
+setdev4 = SettingDevice.create! :name => 'MAPAL对刀仪'
+setdev5 = SettingDevice.create! :name => 'WALTER'
+setdev6 = SettingDevice.create! :name => 'ZOLLER'
+setdev7 = SettingDevice.create! :name => '大理石平台'
+setdev8 = SettingDevice.create! :name => '高度尺+专用夹具'
+setdev9 = SettingDevice.create! :name => '外圆磨床'
+setdev10 = SettingDevice.create! :name => '万能工具磨床'
+setdev11 = SettingDevice.create! :name => '专用对刀仪'
+
+puts 'SETTING SETTING TYPE'
+settype1 = SettingType.create! :name => '无'
+
+puts 'SETTING SHARPEN DEVICE'
+sharpdev1 = SharpenDevice.create! :name => 'APE40A'
+sharpdev2 = SharpenDevice.create! :name => 'APE40A(1+新增)'
+sharpdev3 = SharpenDevice.create! :name => 'CM-2'
+sharpdev4 = SharpenDevice.create! :name => 'EWAG'
+sharpdev5 = SharpenDevice.create! :name => 'WALTER'
+sharpdev6 = SharpenDevice.create! :name => '外圆磨床'
+sharpdev7 = SharpenDevice.create! :name => '万能工具磨床'
+sharpdev8 = SharpenDevice.create! :name => '远山'
+
+puts 'SETTING SCRAP TYPE'
+scraptype1 = ScrapType.create! :name => '正常报废'
+scraptype2 = ScrapType.create! :name => '研磨断刀'
+scraptype3 = ScrapType.create! :name => '滑牙'
+
+puts 'SETTING QUALITY CATEGORY'
+quacat1 = QualityCategory.create! :quality_type => '1', :name => '无'
+quacat2 = QualityCategory.create! :quality_type => '2', :name => '无'
+quacat3 = QualityCategory.create! :quality_type => '3', :name => '无'
+quacat4 = QualityCategory.create! :quality_type => '4', :name => '无'
+quacat5 = QualityCategory.create! :quality_type => '5', :name => '无'
+quacat6 = QualityCategory.create! :quality_type => '6', :name => '无'
+quacat7 = QualityCategory.create! :quality_type => '1', :name => '加工不良'
+quacat8 = QualityCategory.create! :quality_type => '1', :name => '刀具破损(异常消耗)'
+quacat9 = QualityCategory.create! :quality_type => '2', :name => '刀具'
+quacat10 = QualityCategory.create! :quality_type => '2', :name => '加工条件'
+quacat11 = QualityCategory.create! :quality_type => '2', :name => '设备故障(润滑不良等)'
+quacat12 = QualityCategory.create! :quality_type => '3', :name => '连续加工'
+quacat13 = QualityCategory.create! :quality_type => '3', :name => '单个操作(刀具交换后)'
+quacat14 = QualityCategory.create! :quality_type => '4', :name => '突发型(破损、折损、错位等)'
+quacat15 = QualityCategory.create! :quality_type => '5', :name => '可防止的损失(其中的日常检查)'
+quacat16 = QualityCategory.create! :quality_type => '5', :name => '不可防止的损失'
+quacat17 = QualityCategory.create! :quality_type => '6', :name => '第一次'
+quacat18 = QualityCategory.create! :quality_type => '6', :name => '不可防止的损失'
+
+

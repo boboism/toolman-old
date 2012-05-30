@@ -5,13 +5,32 @@
 <table class='table-menued'>
   <thead>
     <tr>
+      <th colspan='7'><%= t('.quality.title', default: 'Quality Maintenance') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to t('.quality.quality_deviation_report', default: 'Quality Deviation Report'), quality_deviation_reports_path %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class='table-menued'>
+  <thead>
+    <tr>
       <th colspan='7'><%= t('.sharpen.title', default: 'Sharpening Maintenance') %></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to t('.sharpen.record_manhour', default: 'Record Man-Hour'), root_path %></td>
-      <td></td>
+      <td><%= link_to t('.sharpen.tunning_work_order', default: 'Tunning Work Order'), tunning_work_orders_path %></td>
+      <td><%= link_to t('.sharpen.scrap', default: 'Scrap'), scrap_orders_path %></td>
       <td></td>
       <td></td>
       <td></td>
@@ -54,15 +73,15 @@
       <td><%= link_to t('.masterdata.sub_category', default: 'SubCategory'), sub_categories_path %></td>
       <td><%= link_to t('.masterdata.facility_type', default: 'Facility Type'), facility_types_path %></td>
       <td><%= link_to t('.masterdata.facility_code', default: 'Facility Code'), facility_codes_path %></td>
-      <td><%= link_to t('.masterdata.workshop_process', default: 'Workshop Process'), workshop_processes_path %></td>
+      <td><%= link_to t('.masterdata.manufacturer', default: 'Manufacturer'), manufacturers_path %></td>
     </tr>
     <tr>
       <td><%= link_to t('.masterdata.manufacturer', default: 'Manufacturer'), manufacturers_path %></td>
       <td><%= link_to t('.masterdata.workshop_process', default: 'Workshop Process'), workshop_processes_path %></td>
       <td><%= link_to t('.masterdata.agency', default: 'Agency'), agencies_path %></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= link_to t('.masterdata.setting_device', default: 'Setting Devices'), setting_devices_path %></td>
+      <td><%= link_to t('.masterdata.setting_type', default: 'Setting Types'), setting_types_path %></td>
+      <td><%= link_to t('.masterdata.sharpen_device', default: 'Sharpen Types'), sharpen_devices_path %></td>
       <td></td>
     </tr>
   </tbody>

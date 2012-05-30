@@ -13,6 +13,20 @@
 */
 
 @import "bootstrap";
+
+@media print {
+  body { background-color: #000; }
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  #line-items {
+    page-break-before: always;
+  }
+}
+
 .footer {
   @extend .breadcrumb;
   @extend .footer;
@@ -72,12 +86,12 @@
     text-align: center;
   }
 
-  .btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back {
+  .btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print {
     @extend .btn-small;
   }
 }
 
-.btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back {
+.btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print {
   @extend .btn;
 }
 .btn-edit {
@@ -92,13 +106,32 @@
 .btn-back {
   @extend .btn-inverse;
 }
+.btn-confirm {
+  @extend .btn-info;
+}
+.btn-xls {
+  @extend .btn-success;
+}
+.btn-print {
+  @extend .btn-warning;
+}
 
 .operation-group {
+  @extend .btn-toolbar;
+/*
   @extend .well;
   @extend .form-actions;
+*/
+}
+.action-group {
+  @extend .btn-group;
+}
 
-  .action-group {
-    @extend .btn-group;
+.search {
+  @extend .form-search;
+  input[type='text']{
+    @extend .search-query;
+    @extend .span4;
   }
 }
 

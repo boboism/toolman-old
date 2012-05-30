@@ -9,6 +9,7 @@
 <div class='operation-group'>
   <div class='action-group'>
     <%= link_to t('.new', default: t('helpers.links.new')), new_tool_material_path, class: 'btn-new' %>
+    <%= link_to t('.xls', default: t('helpers.links.xls')), tool_materials_path(:format => :xls), :class => 'btn-xls' %>
   </div>
 </div>
 
@@ -30,17 +31,20 @@
     <% @tool_materials.each do |tool_material| %>
       <tr>
         <td><%= tool_material.tool_no%></td>
-        <td><%= tool_material.category.name %></td>
-        <td><%= tool_material.sub_category.name %></td>
+        <td><%= tool_material.category %></td>
+        <td><%= tool_material.sub_category %></td>
         <td><%= tool_material.model %></td>
         <td><%= t(tool_material.standardized) %></td>
         <td><%= tool_material.service_quantity %></td>
         <td><%= t(tool_material.sharpen_part) %></td>
         <td><%= l(tool_material.created_at) %></td>
-        <td>
+        <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), tool_material, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_tool_material_path(tool_material), class: 'btn-edit' %>
-          <%= link_to t('.destroy', default: t('helpers.links.destroy')), tool_material, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></td>
+          <%= link_to t('.index_in_service_tool_parts', default: t('helpers.links.distribute')), tool_material_serving_parts_path(tool_material), class: 'btn-new' %>
+          <%= link_to t('.print', default: t('helpers.links.print')), print_tool_material_path(tool_material, :format => :pdf), class: 'btn-print' %>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), tool_material, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %>
+        </div></td>
       </tr>
     <% end %>
   </tbody>

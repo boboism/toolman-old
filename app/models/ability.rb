@@ -5,6 +5,12 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+    elsif user.has_role? :manager
+      can :manage, [EngineModel, ProductLine, Category, SubCategory, FacilityType, FacilityCode, WorkshopProcess, Manufacturer, Agency, SettingDevice, SettingType, SharpenDevice, User]
+      can :manage, [ToolMaterial, AssemblyTool, TunningWorkOrder]
+    elsif user.has_role? :teamleader
+      can :manage, [EngineModel, ProductLine, Category, SubCategory, FacilityType, FacilityCode, WorkshopProcess, Manufacturer, Agency, SettingDevice, SettingType, SharpenDevice]
+      can :manage, [ToolMaterial, AssemblyTool, TunningWorkOrder]
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+$(function(){
+  $('.btn-new, .btn-edit, .btn-destroy, .btn-print, .btn-show').popover();    
+});

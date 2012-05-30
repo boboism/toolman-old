@@ -6,15 +6,8 @@
   <li><%= t('.title') %></li>
 <% end %>
 <h1><%= t('.title') %></h1>
-<p>
-  <b>><%= @facility_type.class.human_attribute_name(:name) %>:</b>
-  <%= @facility_type.name %>
-</p>
-
-<p>
-  <b>><%= @facility_type.class.human_attribute_name(:description) %>:</b>
-  <%= @facility_type.description %>
-</p>
+<p><b><%= @facility_type.class.human_attribute_name(:name) %>:</b>%= @facility_type.name %></p>
+<p><b><%= @facility_type.class.human_attribute_name(:description) %>:</b>%= @facility_type.description %></p>
 
 
 <%= link_to t('helpers.links.edit'), edit_facility_type_path(@facility_type), class: 'btn-edit' %>
