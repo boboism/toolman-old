@@ -10,7 +10,18 @@
   table {
     text-align: center;
   }
-  td { width: 150px; text-align: center; padding: 5px; font-weight: bold; font-size: 25px;}
+  td { 
+    width: 150px; 
+    text-align: center; 
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 5px; 
+    padding-right: 5px;
+    font-weight: bold; 
+    font-size: 25px;
+    /*border-bottom: 1px solid black;*/
+  }
 </style>
 <%= @content_type %>
 <%= @content_match %>
@@ -19,8 +30,8 @@
     <tr>
       <% batch.each do |str, png| %>
         <td>
-          <%= image_tag png %><br>
-          <%= str %>
+          <%= image_tag png %>
+          <span><%= str %></span>
         </td>
       <% end %>
         <% (5-batch.size).times do %>

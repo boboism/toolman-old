@@ -1,4 +1,4 @@
-<%= simple_form_for(set_up_scrap_order(@scrap_order)) do |f| %>
+<%= simple_form_for(set_up_scrap_order(@scrap_order), :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -6,7 +6,7 @@
     <%= f.association :scrap_tool_parts, :collection => ToolPart.scrapable(:assembly_tool => @scrap_order.assembly_tool).all, :as => :check_boxes, :multipled => true if @scrap_order.assembly_tool %>
     <%= f.association :doc_user %>
     <%= f.input :doc_date %>
-    <%= f.association :scrap_type %>
+    <%= f.association :scrap_type, :as => :radio_buttons, :item_wrapper_class => :inline %>
     <%= f.input :scrap_reason %>
   </div>
 

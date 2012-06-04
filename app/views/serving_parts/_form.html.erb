@@ -1,9 +1,11 @@
-<%= simple_form_for(@in_service_tool_part, url: tool_material_serving_parts_path(@tool_material, @in_service_tool_part)) do |f| %>
+<%= simple_form_for(@in_service_tool_part, :url => ( @in_service_tool_part.new_record? ? tool_material_serving_parts_path(@tool_material) : tool_material_serving_part_path(@tool_material, @in_service_tool_part) ), :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :tool_material, disabled: true %>
-    <%= f.input :part_no %><%= image_tag @in_service_tool_part.barcode.archive.url %><%= image_tag @in_service_tool_part.qrcode.archive.url %>
+    <%= f.input :part_no %>
+    <%= image_tag @in_service_tool_part.barcode.archive.url if @in_service_tool_part.barcode %>
+    <%= image_tag @in_service_tool_part.qrcode.archive.url if @in_service_tool_part.qrcode %>
     <%= f.association :category %>
     <%= f.association :sub_category %>
     <%= f.input :model %>
