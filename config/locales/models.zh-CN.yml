@@ -1,6 +1,9 @@
 zh-CN:
   activerecord:
     models:
+      service_stock_order:
+        one: '出入库记录'
+        other: '出入库记录'
       manufacturer:
         one: '厂家'
         other: '厂家'
@@ -425,3 +428,16 @@ zh-CN:
         suggestion: '领导指导事项'
         created_at: '创建时间'
         confirmed: '已确认'
+      
+      service_stock_order:
+        io: '出/入库'
+        io_type:
+          O: '出库'
+          I: '入库'
+        doc_user: '制单人'
+        doc_date: '制单日期'
+        operation_date: '出入库日期'
+        operator: '领用人'
+        assembly_tool: '工具'
+        created_at: '创建时间'
+

@@ -12,7 +12,6 @@
 
       <div class="nav-collapse float-right">
         <ul class="nav">
-          <li class="active"><%= link_to t('views.home.title', :default => 'Home'), root_path %></li>
 
           <% if user_signed_in? %>
             <li><%= link_to(t('views.application.edit_account', :name => current_user.nickname || current_user.name, :default => 'Edit account'), edit_user_registration_path) %></li>

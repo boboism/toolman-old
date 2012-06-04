@@ -15,6 +15,11 @@ zh-CN:
       quality:
         title: '质量管理'
         quality_deviation_report: '质量速报表'
+      logistic:
+        title: '出入库管理'
+        in_out: '出入库查询'
+        in: '新增入库'
+        out: '新增出库'
       masterdata:
         title: '基础数据维护'
         manufacturer: '厂家'
@@ -33,6 +38,7 @@ zh-CN:
         title: '刀具管理'
         tool_material: '刀具零件'
         assembly_tool: '组合刀具'
+        barcode_generator: '条码生成'
       sharpen:
         title: '刃磨管理'
         tunning_work_order: '工时工单'
@@ -295,4 +301,23 @@ zh-CN:
   tool_cards:
     index:
       title: '刀具卡片列表'
+  barcode_generators:
+    index:
+      title: '条码生成列表'
+    new:
+      title: '条码生成'
+    form:
+      upload_label: '上传文件格式必须是.csv，而且只能是一列的EXCEL'
+
+  service_stock_orders:
+    index:
+      title: '出入库记录列表'
+      new_in: '新增入库'
+      new_out: '新增出库'
+    new:
+      title: '新增出入库记录'
+    edit:
+      title: '编辑出入库记录'
+    show:
+      title: '显示出入库记录'
 

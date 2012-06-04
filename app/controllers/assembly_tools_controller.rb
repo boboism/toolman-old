@@ -94,4 +94,7 @@ class AssemblyToolsController < ApplicationController
       end
     end
   end
+
+  def search
+  end
 end

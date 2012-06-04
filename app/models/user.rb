@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   has_many :tunning_work_orders, :class_name => :TunningWorkOrder, :foreign_key => :doc_user_id
   has_many :scrap_orders, :class_name => :ScrapOrder, :foreign_key => :doc_user_id
-
+  has_many :service_stock_orders, :class_name => :ServiceStockOrder, :foreign_key => :doc_user_id
 
   
   def to_str

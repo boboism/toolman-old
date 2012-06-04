@@ -1,7 +1,13 @@
 <% content_for :breadcrumb do %>
   <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
   <li><span class='divider'>/</span></li>
-  <li><%= link_to t('users.index.title'), users_path %></li>
+  <li>  
+    <% if current_user and current_user.has_role? :admin %>
+      <%= link_to t('users.index.title'), users_path %>
+    <% else %>
+      <%= t('users.index.title') %>
+    <% end %>
+  </li>
   <li><span class='divider'>/</span></li>
   <li><%= t('users.edit.title') %></li>
 <% end %>

@@ -1,5 +1,15 @@
 Toolman::Application.routes.draw do
 
+
+  resources :service_stock_orders, :except => [:new] do
+    collection do
+      get :new_in
+      get :new_out
+    end
+  end
+
+  resources :barcode_generators
+
   resources :tool_cards
 
   resources :quality_categories

@@ -24,12 +24,12 @@ gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
 gem "therubyracer", :group => :assets, :platform => :ruby
 gem "default_value_for"
-gem "fastercsv"
 gem "spreadsheet"
 gem "to_xls", :git => "git://github.com/boboism/to_xls.git" 
 gem "pdfkit"
 # gem "prawn"
 # gem "prawnto"
+# gem 'wicked_pdf'
 gem "barby"
 gem "rqrcode"
 gem "chunky_png"

@@ -5,7 +5,7 @@
 <table class='table-menued'>
   <thead>
     <tr>
-      <th colspan='7'><%= t('.quality.title', default: 'Quality Maintenance') %></th>
+      <th colspan='5'><%= t('.quality.title', default: 'Quality Maintenance') %></th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +15,22 @@
       <td></td>
       <td></td>
       <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class='table-menued'>
+  <thead>
+    <tr>
+      <th colspan='5'><%= t('.logistic.title', default: 'Logistic') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to t('.logistic.in_out', default: 'In & Out'), service_stock_orders_path %></td>
+      <td><%= link_to t('.logistic.in', default: 'In'), new_in_service_stock_orders_path %></td>
+      <td><%= link_to t('.logistic.out', default: 'Out'), new_out_service_stock_orders_path %></td>
+      <td></td>
       <td></td>
       <td></td>
     </tr>
@@ -24,7 +40,7 @@
 <table class='table-menued'>
   <thead>
     <tr>
-      <th colspan='7'><%= t('.sharpen.title', default: 'Sharpening Maintenance') %></th>
+      <th colspan='5'><%= t('.sharpen.title', default: 'Sharpening Maintenance') %></th>
     </tr>
   </thead>
   <tbody>
@@ -34,8 +50,6 @@
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
     </tr>
   </tbody>
 </table>
@@ -43,16 +57,14 @@
 <table class='table-menued'>
   <thead>
     <tr>
-      <th colspan='7'><%= t('.tool_management.title', default: 'Tool Management') %></th>
+      <th colspan='5'><%= t('.tool_management.title', default: 'Tool Management') %></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= link_to t('.tool_management.tool_material', default: 'Tool Material'), tool_materials_path %></td>
       <td><%= link_to t('.tool_management.assembly_tool', default: 'Assmebly Tool'), assembly_tools_path %></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><%= link_to t('.tool_management.barcode_generator', default: 'Barcode Generator'), new_barcode_generator_path %></td>
       <td></td>
       <td></td>
     </tr>
@@ -62,7 +74,7 @@
 <table class='table-menued'>
   <thead>
     <tr>
-      <th colspan='7'><%= t('.masterdata.title', default: 'Master Data Maintenance') %></th>
+      <th colspan='5'><%= t('.masterdata.title', default: 'Master Data Maintenance') %></th>
     </tr>
   </thead>
   <tbody>
@@ -72,8 +84,6 @@
       <td><%= link_to t('.masterdata.category', default: 'Category'), categories_path %></td>
       <td><%= link_to t('.masterdata.sub_category', default: 'SubCategory'), sub_categories_path %></td>
       <td><%= link_to t('.masterdata.facility_type', default: 'Facility Type'), facility_types_path %></td>
-      <td><%= link_to t('.masterdata.facility_code', default: 'Facility Code'), facility_codes_path %></td>
-      <td><%= link_to t('.masterdata.manufacturer', default: 'Manufacturer'), manufacturers_path %></td>
     </tr>
     <tr>
       <td><%= link_to t('.masterdata.manufacturer', default: 'Manufacturer'), manufacturers_path %></td>
@@ -81,7 +91,12 @@
       <td><%= link_to t('.masterdata.agency', default: 'Agency'), agencies_path %></td>
       <td><%= link_to t('.masterdata.setting_device', default: 'Setting Devices'), setting_devices_path %></td>
       <td><%= link_to t('.masterdata.setting_type', default: 'Setting Types'), setting_types_path %></td>
+    </tr>
+    <tr>
+      <td><%= link_to t('.masterdata.facility_code', default: 'Facility Code'), facility_codes_path %></td>
+      <td><%= link_to t('.masterdata.manufacturer', default: 'Manufacturer'), manufacturers_path %></td>
       <td><%= link_to t('.masterdata.sharpen_device', default: 'Sharpen Types'), sharpen_devices_path %></td>
+      <td></td>
       <td></td>
     </tr>
   </tbody>
@@ -90,14 +105,12 @@
 <table class='table-menued'>
   <thead>
     <tr>
-      <th colspan='7'><%= t('.access_control.title', default: 'Access Control Maintenance') %></th>
+      <th colspan='5'><%= t('.access_control.title', default: 'Access Control Maintenance') %></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= link_to t('.access_control.user', default: 'User'), users_path %></td>
-      <td></td>
-      <td></td>
       <td></td>
       <td></td>
       <td></td>

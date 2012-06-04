@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529024218) do
+ActiveRecord::Schema.define(:version => 20120601005453) do
 
   create_table "archive_files", :force => true do |t|
     t.string   "type"
@@ -93,12 +93,14 @@ ActiveRecord::Schema.define(:version => 20120529024218) do
     t.decimal  "feed_speed"
     t.decimal  "blade_quantity"
     t.decimal  "standard_setting_time"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.boolean  "assembled"
     t.integer  "setting_device_id"
     t.integer  "setting_type_id"
     t.boolean  "confirmed"
+    t.string   "logistic_status"
+    t.string   "stock_status",          :limit => nil
   end
 
   add_index "assembly_tools", ["assembled"], :name => "index_assembly_tools_on_assembled"
@@ -106,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120529024218) do
   add_index "assembly_tools", ["facility_code_id"], :name => "index_assembly_tools_on_facility_code_id"
   add_index "assembly_tools", ["facility_type_id"], :name => "index_assembly_tools_on_facility_type_id"
   add_index "assembly_tools", ["hilt_no"], :name => "index_assembly_tools_on_hilt_no"
+  add_index "assembly_tools", ["logistic_status"], :name => "index_assembly_tools_on_logistic_status"
   add_index "assembly_tools", ["product_line_id"], :name => "index_assembly_tools_on_product_line_id"
   add_index "assembly_tools", ["setting_device_id"], :name => "index_assembly_tools_on_setting_device_id"
   add_index "assembly_tools", ["setting_type_id"], :name => "index_assembly_tools_on_setting_type_id"
@@ -272,6 +275,22 @@ ActiveRecord::Schema.define(:version => 20120529024218) do
   end
 
   add_index "scrap_types", ["name"], :name => "index_scrap_types_on_name"
+
+  create_table "service_stock_orders", :force => true do |t|
+    t.string   "io"
+    t.integer  "doc_user_id"
+    t.datetime "doc_date"
+    t.integer  "operator_id"
+    t.integer  "assembly_tool_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.datetime "operation_date"
+  end
+
+  add_index "service_stock_orders", ["assembly_tool_id"], :name => "index_service_stock_orders_on_assembly_tool_id"
+  add_index "service_stock_orders", ["doc_user_id"], :name => "index_service_stock_orders_on_doc_user_id"
+  add_index "service_stock_orders", ["io"], :name => "index_service_stock_orders_on_io"
+  add_index "service_stock_orders", ["operator_id"], :name => "index_service_stock_orders_on_operator_id"
 
   create_table "setting_devices", :force => true do |t|
     t.string   "name"
