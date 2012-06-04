@@ -38,7 +38,7 @@
   <p><b><%= purchase_info.human_attribute_name(:quantity) %>:</b><%= @tool_material.purchase_info.quantity if @tool_material.purchase_info %></p>
 </fieldset>
 <fieldset>
-  <legend><%= t('.stocking_info') %></legend>
+  <legend><%= @tool_material.class.human_attribute_name(:stocking_info) %></legend>
   <p><b><%= stocking_info.human_attribute_name(:stock_no) %>:</b><%= @tool_material.stocking_info.stock_no if @tool_material.stocking_info %></p>
   <p><b><%= stocking_info.human_attribute_name(:stack_no) %>:</b><%= @tool_material.stocking_info.stack_no if @tool_material.stocking_info %></p>
   <p><b><%= stocking_info.human_attribute_name(:current_quantity) %>:</b><%= @tool_material.stocking_info.current_quantity if @tool_material.stocking_info %></p>

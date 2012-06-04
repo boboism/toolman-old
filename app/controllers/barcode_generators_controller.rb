@@ -2,6 +2,7 @@ class BarcodeGeneratorsController < ApplicationController
   require 'barby'
   require 'barby/outputter/png_outputter'
   require 'barby/barcode/code_128'
+  require 'barby/barcode/gs1_128'
   require 'csv'
 
   def index
@@ -19,10 +20,12 @@ class BarcodeGeneratorsController < ApplicationController
       root = Rails.root.join('public','tmp')
       if file
         CSV.foreach(file.tempfile) do |row|
-          barcode = Barby::Code128B.new(row[0]).to_png(:height => 38)
-          path = "#{(Time.now.to_f*10000000).to_i}.png"
-          file = File.open(root.join(path), 'w') {|f| f.write barcode}
-          @barcodes[row[0]] = "/tmp/#{path}"
+          if row
+            barcode = Barby::GS1128.new(row[0],'B', '').to_png(:height => 38, :margin => 0)
+            path = "#{(Time.now.to_f*10000000).to_i}.png"
+            file = File.open(root.join(path), 'w') {|f| f.write barcode}
+            @barcodes[row[0]] = "/tmp/#{path}"
+          end
         end
       end
       render :index, :layout => "pdf" and return

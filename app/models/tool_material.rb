@@ -54,7 +54,7 @@ class ToolMaterial < ActiveRecord::Base
   end
 
   def barcode_content
-    "#{tool_no} #{model}"
+    "#{tool_no}"
   end
   alias qrcode_content barcode_content
 
@@ -63,21 +63,25 @@ class ToolMaterial < ActiveRecord::Base
   end
 
   def mass_create_serving_parts
-    service_quantity.times{ |index| append_serving_part(index) } if serving_parts.empty?
+    ActiveRecord::Base.transaction do
+      self.service_quantity.times{ |index| append_serving_part(index+1) } if serving_parts.empty?
+      self.save
+    end
     self
   end
 
   def append_serving_part(index = nil)
     index = index || serving_parts.map{ |part| part.part_no }.max_by{|no| no.last(2).to_i }
-    serving_parts.build(:part_no => "#{tool_no}/#{'%02d'%(index + 1)}",
-                      :category => category,
-                      :sub_category => sub_category,
-                      :model => model,
-                      :expected_quantity => (technical_info.expected_quantity if technical_info) || 0,
-                      :expected_sharpen_time => (technical_info.sharpen_time if technical_info) || 0,
-                      :actual_quantity => 0,
-                      :actual_sharpen_time => 0
-                     )
+    self.serving_parts.build(
+      :part_no => "#{self.model}/#{'%02d'%index}",
+      :category => self.category,
+      :sub_category => self.sub_category,
+      :model => self.model,
+      :expected_quantity => (self.technical_info.expected_quantity if self.technical_info) || 0,
+      :expected_sharpen_time => (self.technical_info.sharpen_time if self.technical_info) || 0,
+      :actual_quantity => 0,
+      :actual_sharpen_time => 0
+    )
   end
 
   def self.default_xls_options

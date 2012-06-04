@@ -63,7 +63,7 @@ class ServingPartsController < ApplicationController
     # arrange_tool_material_serving_parts(@tool_material)
 
     respond_to do |format|
-      if @tool_material.mass_create_serving_parts.save
+      if @tool_material.mass_create_serving_parts
         format.html { redirect_to tool_material_serving_parts_url(@tool_material), notice: 'In service tool part was successfully created.' }
       else
         format.html { render action: "index" }

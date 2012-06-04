@@ -249,7 +249,7 @@ zh-CN:
         physical_info: '规格'
         purchase_info: '采购信息'
         stocking_info: 'GPS库存信息'
-        record_description: '%{tool_no} %{model}'
+        record_description: '工具号：%{tool_no} 型号：%{model}'
         created_at: '创建时间'
 
       archive_file:
@@ -346,7 +346,7 @@ zh-CN:
         actual_quantity: '已加工总件数'
         actual_sharpen_time: '已研磨(转角)总次数'
         tool_material: '刀具零件'
-        record_description: '%{tool_no} %{model}'
+        record_description: '%{tool_no}'
         created_at: '创建时间'
 
       setting_device:

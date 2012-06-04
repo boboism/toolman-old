@@ -13,18 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20120601005453) do
 
-  create_table "archive_files", :force => true do |t|
-    t.string   "type"
-    t.string   "name"
-    t.string   "file_suffix"
-    t.integer  "size"
-    t.string   "url"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "archive_files", ["type"], :name => "index_archive_files_on_type"
-
   create_table "archives", :force => true do |t|
     t.string   "type"
     t.integer  "archivable_id"
@@ -63,9 +51,9 @@ ActiveRecord::Schema.define(:version => 20120601005453) do
   create_table "assembly_tool_items", :force => true do |t|
     t.integer  "assembly_tool_id"
     t.integer  "tool_material_id"
-    t.decimal  "quantity"
+    t.integer  "quantity"
     t.string   "uom"
-    t.decimal  "standard_sharpen_time"
+    t.integer  "standard_sharpen_time"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.boolean  "assembled"
@@ -93,14 +81,13 @@ ActiveRecord::Schema.define(:version => 20120601005453) do
     t.decimal  "feed_speed"
     t.decimal  "blade_quantity"
     t.decimal  "standard_setting_time"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
     t.boolean  "assembled"
     t.integer  "setting_device_id"
     t.integer  "setting_type_id"
     t.boolean  "confirmed"
-    t.string   "logistic_status"
-    t.string   "stock_status",          :limit => nil
+    t.string   "stock_status"
   end
 
   add_index "assembly_tools", ["assembled"], :name => "index_assembly_tools_on_assembled"
@@ -108,10 +95,10 @@ ActiveRecord::Schema.define(:version => 20120601005453) do
   add_index "assembly_tools", ["facility_code_id"], :name => "index_assembly_tools_on_facility_code_id"
   add_index "assembly_tools", ["facility_type_id"], :name => "index_assembly_tools_on_facility_type_id"
   add_index "assembly_tools", ["hilt_no"], :name => "index_assembly_tools_on_hilt_no"
-  add_index "assembly_tools", ["logistic_status"], :name => "index_assembly_tools_on_logistic_status"
   add_index "assembly_tools", ["product_line_id"], :name => "index_assembly_tools_on_product_line_id"
   add_index "assembly_tools", ["setting_device_id"], :name => "index_assembly_tools_on_setting_device_id"
   add_index "assembly_tools", ["setting_type_id"], :name => "index_assembly_tools_on_setting_type_id"
+  add_index "assembly_tools", ["stock_status"], :name => "index_assembly_tools_on_stock_status"
   add_index "assembly_tools", ["workshop_process_id"], :name => "index_assembly_tools_on_workshop_process_id"
 
   create_table "categories", :force => true do |t|

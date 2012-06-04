@@ -10,7 +10,7 @@
   table {
     text-align: center;
   }
-  td { text-align: center; margin: 5px;}
+  td { width: 150px; text-align: center; padding: 5px; font-weight: bold; font-size: 25px;}
 </style>
 <%= @content_type %>
 <%= @content_match %>
@@ -18,7 +18,7 @@
   <% @barcodes.each_slice(5) do |batch| %>
     <tr>
       <% batch.each do |str, png| %>
-        <td width='150px;'>
+        <td>
           <%= image_tag png %><br>
           <%= str %>
         </td>

@@ -13,7 +13,7 @@ class ToolMaterialObserver < ActiveRecord::Observer
     return unless record.is_a? ToolMaterial
     record.serving_parts.each do |part|
       nos = part.part_no.split('/')
-      nos[0] = record.tool_no
+      nos[0] = record.model
       part.part_no = nos.join('/')
     end
   end

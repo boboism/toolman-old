@@ -62,7 +62,9 @@ class ToolPart < ActiveRecord::Base
   alias qrcode_content barcode_content
 
   def to_str
-    "#{part_no} #{category} #{sub_category} #{model}"
+    I18n.t("activerecord.attributes.tool_part.record_description",
+           :part_no => part_no
+          )
   end
   alias to_label to_str
   alias to_s to_str
