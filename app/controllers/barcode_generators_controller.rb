@@ -1,22 +1,18 @@
 class BarcodeGeneratorsController < ApplicationController
-  require 'barby'
-  require 'barby/outputter/png_outputter'
-  require 'barby/barcode/code_128'
-  require 'barby/barcode/gs1_128'
-  require 'csv'
 
   def index
   end
 
   def create
-    # @content_type = params[:archive][:archive].original_filename
-    # @content_match = @content_type =~ /\.csv$/
-    # @barcodes = {}
-    # render :index and return
+    require 'barby'
+    require 'barby/outputter/png_outputter'
+    require 'barby/barcode/code_128'
+    require 'barby/barcode/gs1_128'
+    require 'csv'
     
     if params[:archive] and params[:archive][:archive] and params[:archive][:archive].original_filename =~ /\.csv$/
       file = params[:archive][:archive]
-      @barcodes = {}
+      @barcodes ||= {}
       root = Rails.root.join('public','tmp')
       Dir::mkdir(root) unless FileTest.directory? root
       CSV.foreach(file.tempfile) do |row|
