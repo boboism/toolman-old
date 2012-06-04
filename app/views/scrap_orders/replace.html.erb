@@ -1,0 +1,13 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('scrap_orders.index.title'), scrap_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
+
+<%= render 'replacement' %>
+
+<%= link_to t('helpers.links.show'), @scrap_order, class: 'btn-show' %>
+<%= link_to t('helpers.links.back'), scrap_orders_path, class: 'btn-back' %>

@@ -1,0 +1,2 @@
+module ScrapOrderItemsHelper
+end

@@ -1,0 +1,35 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('tunning_work_orders.index.title'), tunning_work_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @tunning_work_order.class.human_attribute_name(:assembly_tool) %>:</b><%= @tunning_work_order.assembly_tool %></p>
+
+<p><b><%= @tunning_work_order.class.human_attribute_name(:doc_user) %>:</b><%= @tunning_work_order.doc_user %></p>
+
+<p><b><%= @tunning_work_order.class.human_attribute_name(:doc_date) %>:</b><%= @tunning_work_order.doc_date %></p>
+
+<% if @tunning_work_order.setting_item %>
+  <div class='header-info'><%= t('.setting_item') %></div>
+  <p><b><%= @tunning_work_order.setting_item.class.human_attribute_name(:setting_device) %>:</b><%= @tunning_work_order.setting_item.setting_device %></p>
+  <p><b><%= @tunning_work_order.setting_item.class.human_attribute_name(:setting_type) %>:</b><%= @tunning_work_order.setting_item.setting_type %></p>
+  <p><b><%= @tunning_work_order.setting_item.class.human_attribute_name(:expected_time) %>:</b><%= @tunning_work_order.setting_item.expected_time %></p>
+  <p><b><%= @tunning_work_order.setting_item.class.human_attribute_name(:actual_time) %>:</b><%= @tunning_work_order.setting_item.actual_time %></p>
+<% end %>
+
+<% @tunning_work_order.sharpen_items.each_with_index do |item, index| %>
+  <div class='header-info'><%= t('.sharpen_item', :index => index + 1) %></div>
+  <p><b><%= item.class.human_attribute_name(:tool_part) %>:</b><%= item.tool_part %></p>
+  <p><b><%= item.class.human_attribute_name(:sharpen_device) %>:</b><%= item.sharpen_device %></p>
+  <p><b><%= item.class.human_attribute_name(:operator) %>:</b><%= item.operator %></p>
+  <p><b><%= item.class.human_attribute_name(:expected_quantity) %>:</b><%= item.expected_quantity %></p>
+  <p><b><%= item.class.human_attribute_name(:expected_time) %>:</b><%= item.expected_time %></p>
+  <p><b><%= item.class.human_attribute_name(:actual_quantity) %>:</b><%= item.actual_quantity %></p>
+  <p><b><%= item.class.human_attribute_name(:actual_time) %>:</b><%= item.actual_time %></p>
+<% end  %>
+
+<%= link_to t('helpers.links.edit'), edit_tunning_work_order_path(@tunning_work_order), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), tunning_work_orders_path, class: 'btn-back' %>

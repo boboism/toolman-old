@@ -1,0 +1,34 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('quality_deviation_reports.index.title'), quality_deviation_reports_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:doc_no) %>:</b><%= @quality_deviation_report.doc_no %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:doc_date) %>:</b><%= @quality_deviation_report.doc_date %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:category_1) %>:</b><%= @quality_deviation_report.category_1 %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:category_2) %>:</b><%= @quality_deviation_report.category_2 %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:category_3) %>:</b><%= @quality_deviation_report.category_3 %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:category_4) %>:</b><%= @quality_deviation_report.category_4 %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:category_5) %>:</b><%= @quality_deviation_report.category_5 %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:category_6) %>:</b><%= @quality_deviation_report.category_6 %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:title) %>:</b><%= @quality_deviation_report.title %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:happen_start_time) %>:</b><%= @quality_deviation_report.happen_start_time %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:happen_start_team) %>:</b><%= @quality_deviation_report.happen_start_team %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:happen_end_time) %>:</b><%= @quality_deviation_report.happen_end_time %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:happen_end_team) %>:</b><%= @quality_deviation_report.happen_end_team %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:stocking_quantity) %>:</b><%= @quality_deviation_report.stocking_quantity %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:bad_quantity) %>:</b><%= @quality_deviation_report.bad_quantity %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:doc_user) %>:</b><%= @quality_deviation_report.doc_user %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:doc_user_type) %>:</b><%= @quality_deviation_report.doc_user_type %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:assembly_tool) %>:</b><%= @quality_deviation_report.assembly_tool %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:reason) %>:</b><%= @quality_deviation_report.reason %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:reason_type) %>:</b><%= @quality_deviation_report.reason_type %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:solution) %>:</b><%= @quality_deviation_report.solution %></p>
+<p><b><%= @quality_deviation_report.class.human_attribute_name(:suggestion) %>:</b><%= @quality_deviation_report.suggestion %></p>
+
+
+<%= link_to t('helpers.links.edit'), edit_quality_deviation_report_path(@quality_deviation_report), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), quality_deviation_reports_path, class: 'btn-back' %>

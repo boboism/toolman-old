@@ -1,0 +1,2 @@
+module AssemblyToolItemsHelper
+end

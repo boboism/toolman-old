@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @scrap_type.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @scrap_type.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_scrap_type_path(@scrap_type) %> |
+<%= link_to 'Back', scrap_types_path %>

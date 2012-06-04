@@ -1,0 +1,22 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('scrap_orders.index.title'), scrap_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @scrap_order.class.human_attribute_name(:assembly_tool) %>:</b><%= @scrap_order.assembly_tool %></p>
+<p><b><%= @scrap_order.class.human_attribute_name(:doc_user) %>:</b><%= @scrap_order.doc_user %></p>
+<p><b><%= @scrap_order.class.human_attribute_name(:doc_date) %>:</b><%= @scrap_order.doc_date %></p>
+<p><b><%= @scrap_order.class.human_attribute_name(:scrap_type) %>:</b><%= @scrap_order.scrap_type %></p>
+<p><b><%= @scrap_order.class.human_attribute_name(:scrap_reason) %>:</b><%= @scrap_order.scrap_reason %></p>
+<p><b><%= @scrap_order.class.human_attribute_name(:scrap_quantity) %>:</b><%= @scrap_order.items.size %></p>
+<p><b><%= @scrap_order.class.human_attribute_name(:items) %>:</b>
+  <ul><% @scrap_order.items.each do |item| %>
+    <li><%= item.scrap_tool_part %> <% if item.replace_tool_part %> => <%= item.replace_tool_part %> <% end %></li>
+  <% end %></ul>
+</p>
+
+<%= link_to t('helpers.links.edit'), edit_scrap_order_path(@scrap_order), :class => 'btn-edit', :'data-original-title' => t('.remind', :default => t('helpers.links.remind')), :'data-content' => t('.edit-remind', :default => '')  %>
+<%= link_to t('helpers.links.back'), scrap_orders_path, :class => 'btn-back' %>

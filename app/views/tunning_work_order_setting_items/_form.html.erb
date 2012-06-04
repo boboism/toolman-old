@@ -1,0 +1,14 @@
+<%= simple_form_for(@tunning_work_order_setting_item, :url => tunning_work_order_setting_item_path(@tunning_work_order, @tunning_work_order_setting_item)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :setting_device %>
+    <%= f.association :setting_type %>
+    <%= f.input :expected_time, :readonly => true %>
+    <%= f.input :actual_time %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

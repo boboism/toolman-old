@@ -1,0 +1,5 @@
+<table class='print-list'>
+  <% @in_service_tool_parts.each do |part| %>
+    <tr><td><%= absolute_image_tag part.barcode.archive.url %></td></tr>
+  <% end %>
+</table>

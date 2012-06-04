@@ -1,0 +1,31 @@
+<%= simple_form_for(set_up_tunning_work_order(@tunning_work_order)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :assembly_tool, :collection => AssemblyTool.confirmed.all %>
+    <%= f.association :doc_user %>
+    <%= f.input :doc_date %>
+    <%= f.simple_fields_for :setting_item do |item| %>
+      <div class='header-info'><%= t('.setting_item') %></div>
+      <%= item.association :setting_device %>
+      <%= item.association :setting_type %>
+      <%= item.input :expected_time, :readonly => true %>
+      <%= item.input :actual_time %>
+      <%= item.association :operator %>
+    <% end %>
+    <%= f.simple_fields_for :sharpen_items do |item| %>
+      <div class='header-info'><%= t('.sharpen_item') %></div>
+      <%= item.association :tool_part %>
+      <%= item.association :sharpen_device %>
+      <%= item.association :operator %>
+      <%= item.input :expected_quantity, :readonly => true %>
+      <%= item.input :expected_time, :readonly => true %>
+      <%= item.input :actual_quantity %>
+      <%= item.input :actual_time %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

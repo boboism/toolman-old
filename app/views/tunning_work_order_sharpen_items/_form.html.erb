@@ -1,0 +1,17 @@
+<%= simple_form_for(@tunning_work_order_sharpen_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :tunning_work_order, :disabled => true %>
+    <%= f.association :sharpen_device %>
+    <%= f.association :tool_part %>
+    <%= f.input :expected_time %>
+    <%= f.input :actual_time %>
+    <%= f.input :expected_quantity %>
+    <%= f.input :actual_quantity %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

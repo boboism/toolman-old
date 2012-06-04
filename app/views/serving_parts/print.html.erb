@@ -1,0 +1,10 @@
+<table>
+  <% @in_service_tool_parts.each_with_index do |part, index| %>
+    <%= raw "<tr>" if index % 4 == 0 %>
+      <td style="text-align:center; padding: 10px; font-size: 1em;">
+        <%= absolute_image_tag part.barcode.archive.url if part.barcode %><br>
+        <%= part.part_no %>
+      </td>
+    <%= raw "</tr>" if index % 4 == (4 - 1) or @in_service_tool_parts.size == index +  1 %>
+  <% end %>
+</table>

@@ -1,0 +1,51 @@
+<%- model_class = AssemblyToolItem.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=link_to t('assembly_tools.index.title'), assembly_tools_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>    
+
+<div class='operation-group'>
+  <div class='action-group'>
+    <%= link_to t('.new', default: t('helpers.links.new')), new_assembly_tool_item_path(@tool_material), class: 'btn-new' %>
+  </div>
+</div>
+
+<table class='table-listed'>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:assembly_tool) %></th>
+      <th><%= model_class.human_attribute_name(:tool_material) %></th>
+      <th><%= model_class.human_attribute_name(:quantity) %></th>
+      <th><%= model_class.human_attribute_name(:serving_parts) %></th>
+      <th><%= model_class.human_attribute_name(:assembled) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assembly_tool_items.each do |assembly_tool_item| %>
+      <tr>
+        <td><%= assembly_tool_item.assembly_tool %></td>
+        <td><%= assembly_tool_item.tool_material %></td>
+        <td><%= assembly_tool_item.quantity %></td>
+        <td>
+          <ol>
+            <% assembly_tool_item.serving_parts.each do |part| %>
+              <li><%= part %></li>
+            <% end %>
+          </ol>
+        </td>
+        <td><%= t assembly_tool_item.assembled.to_s %></td>
+        <td><%= l(assembly_tool_item.created_at) %></td>
+        <td><div class='btn-group'>
+          <%= link_to t('.show', default: t('helpers.links.show')), assembly_tool_item_path(@assembly_tool, assembly_tool_item), class: 'btn-show' %>
+          <%= link_to t('.edit', default: t('helpers.links.edit')), edit_assembly_tool_item_path(@assembly_tool, assembly_tool_item), class: 'btn-edit' %>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), assembly_tool_item_path(@assembly_tool, assembly_tool_item), confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %></div></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

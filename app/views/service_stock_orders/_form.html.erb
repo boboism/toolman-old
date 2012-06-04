@@ -1,0 +1,16 @@
+<%= simple_form_for(@service_stock_order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :io, :disabled => true, :as => :radio_buttons, :collection => [[t('activerecord.attributes.service_stock_order.io_type.I'), 'I'],[t('activerecord.attributes.service_stock_order.io_type.O'), 'O']], :item_wrapper_class => :inline %>
+    <%= f.association :doc_user %>
+    <%= f.input :doc_date %>
+    <%= f.association :operator %>
+    <%= f.input :operation_date %>
+    <%= f.association :assembly_tool %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

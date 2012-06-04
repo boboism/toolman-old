@@ -1,0 +1,32 @@
+<%= simple_form_for(@quality_deviation_report) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :doc_no %>
+    <%= f.input :doc_date %>
+    <%= f.association :category_1, :as => :radio_buttons, :item_wrapper_class => :inline %>
+    <%= f.association :category_2, :as => :radio_buttons, :item_wrapper_class => :inline %>
+    <%= f.association :category_3, :as => :radio_buttons, :item_wrapper_class => :inline %>
+    <%= f.association :category_4, :as => :radio_buttons, :item_wrapper_class => :inline %>
+    <%= f.association :category_5, :as => :radio_buttons, :item_wrapper_class => :inline %>
+    <%= f.association :category_6, :as => :radio_buttons, :item_wrapper_class => :inline %>
+    <%= f.input :title %>
+    <%= f.input :happen_start_time %>
+    <%= f.input :happen_start_team %>
+    <%= f.input :happen_end_time %>
+    <%= f.input :happen_end_team %>
+    <%= f.input :stocking_quantity %>
+    <%= f.input :bad_quantity %>
+    <%= f.association :doc_user %>
+    <%= f.input :doc_user_type %>
+    <%= f.association :assembly_tool %>
+    <%= f.input :reason %>
+    <%= f.input :reason_type %>
+    <%= f.input :solution %>
+    <%= f.input :suggestion %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

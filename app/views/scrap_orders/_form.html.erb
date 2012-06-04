@@ -1,0 +1,16 @@
+<%= simple_form_for(set_up_scrap_order(@scrap_order)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :assembly_tool %>
+    <%= f.association :scrap_tool_parts, :collection => ToolPart.scrapable(:assembly_tool => @scrap_order.assembly_tool).all, :as => :check_boxes, :multipled => true if @scrap_order.assembly_tool %>
+    <%= f.association :doc_user %>
+    <%= f.input :doc_date %>
+    <%= f.association :scrap_type %>
+    <%= f.input :scrap_reason %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

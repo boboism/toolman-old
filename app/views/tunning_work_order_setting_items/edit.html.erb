@@ -1,0 +1,15 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('tunning_work_orders.index.title'), tunning_work_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('tunning_work_order_setting_items.index.title'), tunning_work_order_setting_items_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('helpers.links.show'), @tunning_work_order_setting_item, class: 'btn-show' %>
+<%= link_to t('helpers.links.back'), tunning_work_order_setting_items_path(@tunning_work_order), class: 'btn-back' %>

@@ -1,0 +1,28 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('tunning_work_orders.index.title'), tunning_work_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('tunning_work_order_setting_items.index.title'), tunning_work_order_setting_items_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @tunning_work_order_setting_item.class.human_attribute_name(:setting_device) %>:</b>
+  <%= @tunning_work_order_setting_item.setting_device %>
+</p>
+
+<p><b><%= @tunning_work_order_setting_item.class.human_attribute_name(:setting_type) %>:</b>
+  <%= @tunning_work_order_setting_item.setting_type %>
+</p>
+
+<p><b><%= @tunning_work_order_setting_item.class.human_attribute_name(:expected_time) %>:</b>
+  <%= @tunning_work_order_setting_item.expected_time %>
+</p>
+
+<p><b><%= @tunning_work_order_setting_item.class.human_attribute_name(:actual_time) %>:</b>
+  <%= @tunning_work_order_setting_item.actual_time %>
+</p>
+
+<%= link_to t('helpers.links.edit'), edit_tunning_work_order_setting_item_path(@tunning_work_order_setting_item), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), tunning_work_order_setting_items_path, class: 'btn-back' %>

@@ -1,0 +1,31 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('barcode_generators.new.title'), new_barcode_generator_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title' %></li>
+<% end %>
+<h1 style="display:none"><%=t '.title' %></h1>
+<style type="text/css">
+  table {
+    text-align: center;
+  }
+  td { text-align: center; margin: 5px;}
+</style>
+<%= @content_type %>
+<%= @content_match %>
+<table>
+  <% @barcodes.each_slice(5) do |batch| %>
+    <tr>
+      <% batch.each do |str, png| %>
+        <td width='150px;'>
+          <%= image_tag png %><br>
+          <%= str %>
+        </td>
+      <% end %>
+        <% (5-batch.size).times do %>
+          <%= raw "<td></td>" %>
+        <% end %>
+    </tr>
+  <% end %>
+</table>

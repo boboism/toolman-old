@@ -1,0 +1,19 @@
+<%= simple_form_for(@in_service_tool_part, url: tool_material_serving_parts_path(@tool_material, @in_service_tool_part)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :tool_material, disabled: true %>
+    <%= f.input :part_no %><%= image_tag @in_service_tool_part.barcode.archive.url %><%= image_tag @in_service_tool_part.qrcode.archive.url %>
+    <%= f.association :category %>
+    <%= f.association :sub_category %>
+    <%= f.input :model %>
+    <%= f.input :expected_quantity %>
+    <%= f.input :expected_sharpen_time %>
+    <%= f.input :actual_quantity %>
+    <%= f.input :actual_sharpen_time %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

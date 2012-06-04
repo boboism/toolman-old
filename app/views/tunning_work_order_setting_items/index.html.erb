@@ -1,0 +1,45 @@
+<%- model_class = TunningWorkOrderSettingItem.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('tunning_work_orders.index.title'), tunning_work_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>
+
+<div class='operation-group'>
+  <div class='action-group'>
+    <%= link_to t('.new', default: t('helpers.links.new')), new_tunning_work_order_setting_item_path, class: 'btn-new' %>    
+  </div>
+</div>
+
+<table class='table-listed'>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:setting_device) %></th>
+      <th><%= model_class.human_attribute_name(:setting_type) %></th>
+      <th><%= model_class.human_attribute_name(:operator) %></th>
+      <th><%= model_class.human_attribute_name(:actual_time) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tunning_work_order_setting_items.each do |tunning_work_order_setting_item| %>
+      <tr>
+        <td><%= tunning_work_order_setting_item.setting_device %></td>
+        <td><%= tunning_work_order_setting_item.setting_type %></td>
+        <td><%= tunning_work_order_setting_item.operator %></td>
+        <td><%= tunning_work_order_setting_item.actual_time %></td>
+        <td><%= l(tunning_work_order_setting_item.created_at) %></td>
+        <td><div class='btn-group'>
+          <%= link_to t('.show', default: t('helpers.links.show')), tunning_work_order_setting_item_path(@tunning_work_order, tunning_work_order_setting_item), class: 'btn-show' %>
+          <%= link_to t('.edit', default: t('helpers.links.edit')), edit_tunning_work_order_setting_item_path(@tunning_work_order, tunning_work_order_setting_item), class: 'btn-edit' %>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), tunning_work_order_setting_item_path(@tunning_work_order, tunning_work_order_setting_item), confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %>
+      </div></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>

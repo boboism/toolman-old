@@ -1,0 +1,43 @@
+<%- model_class = ServiceStockOrder.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>    
+
+<div class='operation-group'>
+  <div class='action-group'>
+    <%= link_to t('.new_in', default: t('helpers.links.new')), new_in_service_stock_orders_path, :class => 'btn-new' %>
+    <%= link_to t('.new_out', default: t('helpers.links.new')), new_out_service_stock_orders_path, :class => 'btn-new' %>
+  </div>
+</div>
+
+<table class='table-listed'>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:io) %></th>
+      <th><%= model_class.human_attribute_name(:assembly_tool) %></th>
+      <th><%= model_class.human_attribute_name(:operation_date) %></th>
+      <th><%= model_class.human_attribute_name(:operator) %></th>
+      <th><%= model_class.human_attribute_name(:doc_user) %></th>
+      <th><%= model_class.human_attribute_name(:doc_date) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @service_stock_orders.each do |service_stock_order| %>
+      <tr>
+        <td><%= t "activerecord.attributes.service_stock_order.io_type.#{service_stock_order.io}" %></td>
+        <td><%= service_stock_order.assembly_tool %></td>
+        <td><%= l service_stock_order.operation_date %></td>
+        <td><%= service_stock_order.operator %></td>
+        <td><%= service_stock_order.doc_user %></td>
+        <td><%= l service_stock_order.doc_date %></td>
+        <td><div class='btn-group'>
+          <%= link_to t('.show', default: t('helpers.links.show')), service_stock_order, class: 'btn-show' %>
+          </div></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

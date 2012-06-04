@@ -1,0 +1,2 @@
+module SharpenDevicesHelper
+end

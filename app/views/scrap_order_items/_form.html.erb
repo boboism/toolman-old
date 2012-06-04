@@ -1,0 +1,13 @@
+<%= simple_form_for(@scrap_order_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :scrap_order %>
+    <%= f.association :replace_tool_part %>
+    <%= f.association :scrap_tool_part %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tunning work order:</b>
+  <%= @tunning_work_order_sharpen_item.tunning_work_order %>
+</p>
+
+<p>
+  <b>Operation device:</b>
+  <%= @tunning_work_order_sharpen_item.operation_device_id %>
+</p>
+
+<p>
+  <b>Assembly tool:</b>
+  <%= @tunning_work_order_sharpen_item.assembly_tool_id %>
+</p>
+
+<p>
+  <b>Tool part:</b>
+  <%= @tunning_work_order_sharpen_item.tool_part_id %>
+</p>
+
+<p>
+  <b>Expected time:</b>
+  <%= @tunning_work_order_sharpen_item.expected_time %>
+</p>
+
+<p>
+  <b>Actual time:</b>
+  <%= @tunning_work_order_sharpen_item.actual_time %>
+</p>
+
+<p>
+  <b>Expected quantity:</b>
+  <%= @tunning_work_order_sharpen_item.expected_quantity %>
+</p>
+
+<p>
+  <b>Actual quantity:</b>
+  <%= @tunning_work_order_sharpen_item.actual_quantity %>
+</p>
+
+
+<%= link_to 'Edit', edit_tunning_work_order_sharpen_item_path(@tunning_work_order_sharpen_item) %> |
+<%= link_to 'Back', tunning_work_order_sharpen_items_path %>

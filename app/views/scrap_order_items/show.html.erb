@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Scrap order:</b>
+  <%= @scrap_order_item.scrap_order %>
+</p>
+
+<p>
+  <b>Replace tool part:</b>
+  <%= @scrap_order_item.replace_tool_part %>
+</p>
+
+<p>
+  <b>Scrap tool part:</b>
+  <%= @scrap_order_item.scrap_tool_part %>
+</p>
+
+
+<%= link_to 'Edit', edit_scrap_order_item_path(@scrap_order_item) %> |
+<%= link_to 'Back', scrap_order_items_path %>

@@ -1,0 +1,24 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('assembly_tools.index.title'), assembly_tools_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('assembly_tool_items.index.title'), assembly_tool_items_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @assembly_tool.class.human_attribute_name(:product_line) %>:</b><%= @assembly_tool.product_line %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:facility_type) %>:</b><%= @assembly_tool.facility_type %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:facility_code) %>:</b><%= @assembly_tool.facility_code %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:workshop_process) %>:</b><%= @assembly_tool.workshop_process %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:engine_models) %>:</b><%= raw li_engine_models(@assembly_tool) %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:hilt_no) %>:</b><%= @assembly_tool.hilt_no %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:processing_position) %>:</b><%= @assembly_tool.processing_position %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:processing_hole) %>:</b><%= @assembly_tool.processing_hole %></p>
+<p><b><%= @assembly_tool_item.class.human_attribute_name(:tool_material) %>:</b><%= @assembly_tool_item.tool_material %></p>
+<p><b><%= @assembly_tool_item.class.human_attribute_name(:quantity) %>:</b><%= @assembly_tool_item.quantity %></p>
+<p><b><%= @assembly_tool_item.class.human_attribute_name(:uom) %>:</b><%= @assembly_tool_item.uom %></p>
+<p><b><%= @assembly_tool_item.class.human_attribute_name(:standard_sharpen_time) %>:</b><%= @assembly_tool_item.standard_sharpen_time %></p>
+<%= link_to t('helpers.links.edit'), edit_assembly_tool_item_path(@assembly_tool, @assembly_tool_item), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), assembly_tool_items_path(@assembly_tool), class: 'btn-back' %>

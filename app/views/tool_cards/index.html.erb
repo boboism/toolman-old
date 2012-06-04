@@ -1,0 +1,57 @@
+<%- model_class = AssemblyTool.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>
+
+<div class='operation-group'>
+  <div class='action-group'>
+  </div>
+</div>
+
+<table class='table-listed'>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:product_line) %></th>
+      <th><%= model_class.human_attribute_name(:facility_type) %></th>
+      <th><%= model_class.human_attribute_name(:engine_models) %></th>
+      <th><%= model_class.human_attribute_name(:facility_code) %></th>
+      <th><%= model_class.human_attribute_name(:workshop_process) %></th>
+      <th><%= model_class.human_attribute_name(:hilt_no) %></th>
+      <th><%= model_class.human_attribute_name(:items) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @assembly_tools.each do |assembly_tool| %>
+      <tr>
+        <td><%= assembly_tool.product_line %></td>
+        <td><%= assembly_tool.facility_type %></td>
+        <td>
+          <ol>
+            <% assembly_tool.engine_models.each do |engine_model| %>
+              <li><%= engine_model %></li>
+            <% end %>
+          </ol>
+        </td>
+        <td><%= assembly_tool.facility_code %></td>
+        <td><%= assembly_tool.workshop_process %></td>
+        <td><%= assembly_tool.hilt_no %></td>
+        <td>
+          <ol>
+            <% assembly_tool.items.each do |item| %>
+              <li><%= item %></li>
+            <% end %>
+          </ol>
+        </td>
+        <td><div class='btn-group'>
+          <%= link_to t('.show', default: t('helpers.links.show')), tool_card_path(assembly_tool), class: 'btn-show' %>
+          <%= link_to t('.print', default: t('helpers.links.print')), tool_card_path(assembly_tool), class: 'btn-show', :format => :pdf %>
+        </div></td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>

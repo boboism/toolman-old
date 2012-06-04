@@ -1,0 +1,13 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('service_stock_orders.index.title'), service_stock_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('helpers.links.show'), @service_stock_order, class: 'btn-show' %>
+<%= link_to t('helpers.links.back'), service_stock_orders_path, class: 'btn-back' %>

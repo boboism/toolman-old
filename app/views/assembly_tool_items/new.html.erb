@@ -1,0 +1,14 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('assembly_tools.index.title'), assembly_tools_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('assembly_tool_items.index.title'), assembly_tool_items_path(@assembly_tool) %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('helpers.links.back') , assembly_tool_items_path(@assembly_tool), class: 'btn-back' %>

@@ -1,0 +1,15 @@
+<%= simple_form_for(set_up_scrap_order(@scrap_order)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :assembly_tool, :readonly => true %>
+    <% @scrap_order.items.each do |item| %>
+      <%= item.input :scrap_tool_part %>
+      <%= item.association :replace_tool_part %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

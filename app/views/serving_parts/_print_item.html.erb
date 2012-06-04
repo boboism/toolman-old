@@ -1,0 +1,67 @@
+<style type='text/css'>
+table.obj-list {
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  border-spacing: 1px;
+  background-color: #000;
+  cellspacing: 1px;
+}
+
+table.obj-list tr {
+text-align: center;
+margin: 0px;
+padding: 0px;
+border-spacing: 0px;
+border: 0px;
+}
+
+table.obj-list tr th,table.obj-list tr td {
+  padding: 0px;
+  margin: 0px;
+  width: auto;
+  border-spacing: 0px;
+  cellspacing: 0px;
+}
+table.obj-list tr th {
+  color: #000000;
+  font-weight: bold;
+}
+table.obj-list tr td {
+  background-color: #FFFFFF;
+}
+</style>
+
+<table class='obj-list'>
+  <tbody>
+    <tr>
+      <td colspan='2'>
+        <%= absolute_image_tag part.barcode.archive.url if part.barcode %>
+      </td>
+      <td colspan='2'>
+        <%= absolute_image_tag part.qrcode.archive.url if part.qrcode %>
+      </td>
+    </tr>
+    <tr>
+      <td><b><%= part.class.human_attribute_name(:part_no) %></b>
+      </td>
+      <td><b><%= part.class.human_attribute_name(:category) %></b></td>
+      <td><b><%= part.class.human_attribute_name(:sub_category) %></b></td>
+      <td><b><%= part.class.human_attribute_name(:model) %></b></td>
+    </tr>
+    <tr>
+      <td><%= part.part_no %></td>
+      <td><%= part.category %></td>
+      <td><%= part.sub_category %></td>
+      <td><%= part.model %></td>
+    </tr>
+    <tr>
+      <td colspan='2'><b><%= part.class.human_attribute_name(:expected_quantity) %></b></td>
+      <td colspan='2'><b><%= part.class.human_attribute_name(:expected_sharpen_time) %></b></td>
+    </tr>
+    <tr>
+      <td colspan='2'><%= part.expected_quantity %></td>
+      <td colspan='2'><%= part.expected_sharpen_time %></td>
+    </tr>
+  </tbody>
+</table>

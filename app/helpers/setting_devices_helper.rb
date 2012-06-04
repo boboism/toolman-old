@@ -1,0 +1,2 @@
+module SettingDevicesHelper
+end

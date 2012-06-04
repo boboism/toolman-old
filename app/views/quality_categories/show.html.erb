@@ -1,0 +1,25 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('quality_categories.index.title'), quality_categories_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p>
+  <b><%= @quality_category.class.human_attribute_name(:quality_type) %>:</b>
+  <%= @quality_category.quality_type %>
+</p>
+<p>
+  <b><%= @quality_category.class.human_attribute_name(:name) %>:</b>
+  <%= @quality_category.name %>
+</p>
+
+<p>
+  <b><%= @quality_category.class.human_attribute_name(:description) %>:</b>
+  <%= @quality_category.description %>
+</p>
+
+
+<%= link_to t('helpers.links.edit'), edit_quality_category_path(@quality_category), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), quality_categories_path, class: 'btn-back' %>

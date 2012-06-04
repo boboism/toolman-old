@@ -1,0 +1,55 @@
+<%- technical_info = TechnicalInfo.new.class -%>
+<%- purchase_info = PurchaseInfo.new.class -%>
+<%- stocking_info = StockingInfo.new.class -%>
+<%- physical_info = PhysicalInfo.new.class -%>
+<table class="table-listed">
+  <thead>
+    <tr>
+      <th><h1><%= t('.title', :tool_material => @tool_material) %></h1></th>
+      <th class='barcode'><%= absolute_image_tag @tool_material.barcode.archive.url %></th>
+      <th class='qrcode'><%= absolute_image_tag @tool_material.qrcode.archive.url %></th>
+    </tr>
+  </thead>
+</table>
+<fieldset>
+  <legend><%= @tool_material.class.human_attribute_name(:base_info) %></legend>
+  <p><b><%= @tool_material.class.human_attribute_name(:tool_no) %>:</b><%= @tool_material %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:category) %>:</b><%= @tool_material.category %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:sub_category) %>:</b><%= @tool_material.sub_category %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:model) %>:</b><%= @tool_material.model %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:standardized) %>:</b><%= t(@tool_material.standardized) %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:service_quantity) %>:</b><%= @tool_material.service_quantity %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:sharpen_part) %>:</b><%= t(@tool_material.sharpen_part) %></p>
+</fieldset>
+
+<fieldset>
+  <legend><%= @tool_material.class.human_attribute_name(:technical_info) %></legend>
+  <p><b><%= technical_info.human_attribute_name(:sharpen_time) %>:</b><%= @tool_material.technical_info.sharpen_time if @tool_material.technical_info %></p>
+  <p><b><%= technical_info.human_attribute_name(:expected_quantity) %>:</b><%= @tool_material.technical_info.expected_quantity if @tool_material.technical_info %></p>
+  <p><b><%= technical_info.human_attribute_name(:actual_quantity) %>:</b><%= @tool_material.technical_info.actual_quantity if @tool_material.technical_info %></p>
+</fieldset>
+<fieldset>
+  <legend><%= @tool_material.class.human_attribute_name(:purchase_info) %></legend>
+  <p><b><%= purchase_info.human_attribute_name(:purchase_no) %>:</b><%= @tool_material.purchase_info.purchase_no if @tool_material.purchase_info %></p>
+  <p><b><%= purchase_info.human_attribute_name(:manufacturer) %>:</b><%= @tool_material.purchase_info.manufacturer.name if @tool_material.purchase_info %></p>
+  <p><b><%= purchase_info.human_attribute_name(:agency) %>:</b><%= @tool_material.purchase_info.agency.name if @tool_material.purchase_info %></p>
+  <p><b><%= purchase_info.human_attribute_name(:unit_price) %>:</b><%= @tool_material.purchase_info.unit_price if @tool_material.purchase_info %></p>
+  <p><b><%= purchase_info.human_attribute_name(:quantity) %>:</b><%= @tool_material.purchase_info.quantity if @tool_material.purchase_info %></p>
+</fieldset>
+<fieldset>
+  <legend><%= @tool_material.class.human_attribute_name(:stocking_info) %></legend>
+  <p><b><%= stocking_info.human_attribute_name(:stock_no) %>:</b><%= @tool_material.stocking_info.stock_no if @tool_material.stocking_info %></p>
+  <p><b><%= stocking_info.human_attribute_name(:stack_no) %>:</b><%= @tool_material.stocking_info.stack_no if @tool_material.stocking_info %></p>
+  <p><b><%= stocking_info.human_attribute_name(:current_quantity) %>:</b><%= @tool_material.stocking_info.current_quantity if @tool_material.stocking_info %></p>
+  <p><b><%= stocking_info.human_attribute_name(:max_quantity) %>:</b><%= @tool_material.stocking_info.max_quantity if @tool_material.stocking_info %></p>
+  <p><b><%= stocking_info.human_attribute_name(:min_quantity) %>:</b><%= @tool_material.stocking_info.min_quantity if @tool_material.stocking_info %></p>
+</fieldset>
+<fieldset>
+  <legend><%= @tool_material.class.human_attribute_name(:physical_info) %></legend>
+  <p><b><%= physical_info.human_attribute_name(:first_diameter) %>:</b><%= @tool_material.physical_info.first_diameter if @tool_material.physical_info %></p>
+  <p><b><%= physical_info.human_attribute_name(:step_length) %>:</b><%= @tool_material.physical_info.step_length if @tool_material.physical_info %></p>
+  <p><b><%= physical_info.human_attribute_name(:second_diameter) %>:</b><%= @tool_material.physical_info.second_diameter if @tool_material.physical_info %></p>
+  <p><b><%= physical_info.human_attribute_name(:slot_length) %>:</b><%= @tool_material.physical_info.slot_length if @tool_material.physical_info %></p>
+  <p><b><%= physical_info.human_attribute_name(:gross_length) %>:</b><%= @tool_material.physical_info.gross_length if @tool_material.physical_info %></p>
+  <p><b><%= physical_info.human_attribute_name(:hilt_length) %>:</b><%= @tool_material.physical_info.hilt_length if @tool_material.physical_info %></p>
+</fieldset>

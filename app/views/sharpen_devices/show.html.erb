@@ -1,0 +1,21 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('sharpen_devices.index.title'), sharpen_devices_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p>
+  <b><%= @sharpen_device.class.human_attribute_name(:name) %>:</b>
+  <%= @sharpen_device.name %>
+</p>
+
+<p>
+  <b><%= @sharpen_device.class.human_attribute_name(:description) %>:</b>
+  <%= @sharpen_device.description %>
+</p>
+
+
+<%= link_to t('helpers.links.edit'), edit_sharpen_device_path(@sharpen_device), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), sharpen_devices_path, class: 'btn-back' %>

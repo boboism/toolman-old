@@ -1,0 +1,29 @@
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('service_stock_orders.index.title'), service_stock_orders_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%= t('.title') %></h1>
+<p><b><%= @service_stock_order.class.human_attribute_name(:io) %>:</b>
+  <%= t ("activerecord.attributes.service_stock_order.io_type.#{@service_stock_order.io}") %>
+</p>
+
+<p><b><%= @service_stock_order.class.human_attribute_name(:doc_user) %>:</b>
+  <%= @service_stock_order.doc_user %>
+</p>
+<p><b><%= @service_stock_order.class.human_attribute_name(:doc_date) %>:</b>
+  <%= l @service_stock_order.doc_date %>
+</p>
+<p><b><%= @service_stock_order.class.human_attribute_name(:operator) %>:</b>
+  <%= @service_stock_order.operator %>
+</p>
+<p><b><%= @service_stock_order.class.human_attribute_name(:assembly_tool) %>:</b>
+  <%= @service_stock_order.assembly_tool %>
+</p>
+
+
+
+<%= link_to t('helpers.links.edit'), edit_service_stock_order_path(@service_stock_order), class: 'btn-edit' %>
+<%= link_to t('helpers.links.back'), service_stock_orders_path, class: 'btn-back' %>

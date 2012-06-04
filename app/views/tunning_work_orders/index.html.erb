@@ -1,0 +1,45 @@
+<%- model_class = TunningWorkOrder.new.class -%>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%=t '.title', default: model_class.model_name.human.pluralize %></li>
+<% end %>
+<h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>
+
+<div class='operation-group'>
+  <div class='action-group'>
+    <%= link_to t('.new', default: t('helpers.links.new')), new_tunning_work_order_path, :class => 'btn-new', :'data-original-title' => t('.remind', :default => t('helpers.links.remind')), :'data-content' => t('.new-remind', :default => '')  %>    
+  </div>
+</div>
+
+<table class='table-listed'>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:assembly_tool) %></th>
+      <th><%= model_class.human_attribute_name(:doc_user) %></th>
+      <th><%= model_class.human_attribute_name(:doc_date) %></th>
+      <th><%= model_class.human_attribute_name(:completed) %></th>
+      <th><%= model_class.human_attribute_name(:confirmed) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t('.actions', default: t('helpers.actions')) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tunning_work_orders.each do |tunning_work_order| %>
+      <tr>
+        <td><%= tunning_work_order.assembly_tool %></td>
+        <td><%= tunning_work_order.doc_user %></td>
+        <td><%= l(tunning_work_order.doc_date) %></td>
+        <td><%= t(tunning_work_order.completed?.to_s) %></td>
+        <td><%= t(tunning_work_order.confirmed.to_s) %></td>
+        <td><%= l(tunning_work_order.created_at) %></td>
+        <td><div class='btn-group'>
+          <%= link_to t('.show', default: t('helpers.links.show')), tunning_work_order, class: 'btn-show' %>
+          <%= link_to t('.edit', default: t('helpers.links.edit')), edit_tunning_work_order_path(tunning_work_order), class: 'btn-edit' %>
+          <%= link_to t('.confirm', default: t('helpers.links.confirm')), confirm_tunning_work_order_path(tunning_work_order), method: :put, class: 'btn-edit', :'data-original-title' => t('.remind', :default => t('helpers.links.remind')), :'data-content' => t('.confirm-remind', :default => '') %>
+          <%= link_to t('.destroy', default: t('helpers.links.destroy')), tunning_work_order, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %>
+        </div></td>
+      </tr>
+    <% end %>
+  </tbody>  
+</table>
