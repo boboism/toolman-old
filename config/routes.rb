@@ -1,6 +1,8 @@
 Toolman::Application.routes.draw do
 
 
+  resources :combination_tools
+
   resources :service_stock_orders, :except => [:new] do
     collection do
       get :new_in

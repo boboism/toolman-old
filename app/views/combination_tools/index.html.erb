@@ -1,0 +1,33 @@
+<h1>Listing combination_tools</h1>
+
+<table>
+  <tr>
+    <th>Assembly tool</th>
+    <th>Stock status</th>
+    <th>Stock out operator</th>
+    <th>Stock out date</th>
+    <th>Stock in operator</th>
+    <th>Stock in date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @combination_tools.each do |combination_tool| %>
+  <tr>
+    <td><%= combination_tool.assembly_tool %></td>
+    <td><%= combination_tool.stock_status %></td>
+    <td><%= combination_tool.stock_out_operator %></td>
+    <td><%= combination_tool.stock_out_date %></td>
+    <td><%= combination_tool.stock_in_operator %></td>
+    <td><%= combination_tool.stock_in_date %></td>
+    <td><%= link_to 'Show', combination_tool %></td>
+    <td><%= link_to 'Edit', edit_combination_tool_path(combination_tool) %></td>
+    <td><%= link_to 'Destroy', combination_tool, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Combination tool', new_combination_tool_path %>

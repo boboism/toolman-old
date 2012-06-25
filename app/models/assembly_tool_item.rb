@@ -1,11 +1,11 @@
 class AssemblyToolItem < ActiveRecord::Base
-  default_value_for :uom, I18n.t('activerecord.attributes.assembly_tool_item.uom_default')
+  #default_value_for :uom, I18n.t('activerecord.attributes.assembly_tool_item.uom_default')
   belongs_to :assembly_tool
   belongs_to :tool_material
   belongs_to :sharpen_device
-  has_many :serving_parts, :class_name => :ToolPart, :conditions => {:in_service => true}
-  attr_accessible :quantity, :standard_sharpen_time, :uom, :assembled, :tool_material_id, :assembly_tool_id, :sharpen_device_id, :serving_part_ids
-  accepts_nested_attributes_for :serving_parts
+  #has_many :serving_parts, :class_name => :ToolPart, :conditions => {:in_service => true}
+  attr_accessible :quantity, :standard_sharpen_time, :uom, :assembled, :tool_material_id, :assembly_tool_id, :sharpen_device_id#, :serving_part_ids
+  #accepts_nested_attributes_for :serving_parts
 
   def assembled?
     quantity == serving_parts.size

@@ -4,8 +4,8 @@ class ToolPart < ActiveRecord::Base
   belongs_to :category
   belongs_to :sub_category
   belongs_to :tool_material, :autosave => true
-  belongs_to :assembly_tool_item, :include => :assembly_tool
-  belongs_to :assembly_tool
+  # belongs_to :assembly_tool_item, :include => :assembly_tool
+  # belongs_to :assembly_tool
   attr_accessible :actual_quantity, :actual_sharpen_time, :effective_date, :expected_quantity, :expected_sharpen_time, :expired_date, :model, :part_no, :type, :in_service, :tool_material_id, :sub_category, :category
 
   has_one :scrap_order_item, :class_name => :ScrapOrderItem, :foreign_key => :scrap_tool_part_id
@@ -16,6 +16,10 @@ class ToolPart < ActiveRecord::Base
 
   accepts_nested_attributes_for :barcode, :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :qrcode, :allow_destroy => true, :reject_if => :all_blank
+
+  def self.hilts
+    where(:category_id => 4)
+  end
 
 
   def self.scrapable(param = {})

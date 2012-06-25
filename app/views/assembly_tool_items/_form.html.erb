@@ -8,7 +8,7 @@
     <%= f.input :uom %>
     <%= f.association :sharpen_device %>
     <%= f.input :standard_sharpen_time %>
-    <%= f.association :serving_parts, collection: ToolPart.available(:assembly_tool_item => @assembly_tool_item).all, as: :check_boxes, multiple: true if @assembly_tool_item.tool_material %>
+    <% f.association :serving_parts, collection: ToolPart.available(:assembly_tool_item => @assembly_tool_item).all, as: :check_boxes, multiple: true if false && @assembly_tool_item.tool_material %>
   </div>
 
   <div class="form-actions">

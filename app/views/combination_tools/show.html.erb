@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Assembly tool:</b>
+  <%= @combination_tool.assembly_tool %>
+</p>
+
+<p>
+  <b>Stock status:</b>
+  <%= @combination_tool.stock_status %>
+</p>
+
+<p>
+  <b>Stock out operator:</b>
+  <%= @combination_tool.stock_out_operator %>
+</p>
+
+<p>
+  <b>Stock out date:</b>
+  <%= @combination_tool.stock_out_date %>
+</p>
+
+<p>
+  <b>Stock in operator:</b>
+  <%= @combination_tool.stock_in_operator %>
+</p>
+
+<p>
+  <b>Stock in date:</b>
+  <%= @combination_tool.stock_in_date %>
+</p>
+
+
+<%= link_to 'Edit', edit_combination_tool_path(@combination_tool) %> |
+<%= link_to 'Back', combination_tools_path %>

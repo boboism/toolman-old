@@ -20,6 +20,7 @@ class ToolMaterial < ActiveRecord::Base
   has_many :in_service_tool_parts
   has_many :retired_tool_parts
   has_many :serving_parts, :class_name => :ToolPart, :foreign_key => :tool_material_id, :conditions => {:in_service => true}, :autosave => true, :dependent => :destroy
+  has_many :serving_hilts, :through => :serving_parts, :conditions => {:category_id => 4}
   has_many :retired_parts, :class_name => :ToolPart, :foreign_key => :tool_material_id, :conditions => {:in_service => false}, :autosave => true, :dependent => :destroy
 
   accepts_nested_attributes_for :technical_info, :allow_destroy => true, :reject_if => :all_blank
@@ -71,7 +72,7 @@ class ToolMaterial < ActiveRecord::Base
   end
 
   def append_serving_part(index = nil)
-    index = index || serving_parts.map{ |part| part.part_no }.max_by{|no| no.last(2).to_i }
+    index = index || serving_parts.map{ |part| part.tool_no }.max_by{|no| no.last(2).to_i }
     self.serving_parts.build(
       :part_no => "#{self.model}/#{'%02d'%index}",
       :category => self.category,

@@ -19,7 +19,7 @@ class AssemblyTool < ActiveRecord::Base
   has_many :assembly_tool_engine_model_ships
   has_many :engine_models, :through => :assembly_tool_engine_model_ships
   has_many :items, :class_name => :AssemblyToolItem
-  has_many :serving_parts, :class_name => :ToolPart, :through => :items
+  #has_many :serving_parts, :class_name => :ToolPart, :through => :items
   has_many :service_stock_orders, :class_name => :ServiceStockOrder, :autosave => true
 
   attr_accessible :assembled, :blade_quantity, :feed_speed, :first_velocity, :hilt_no, :max_diameter, :max_velocity, :processing_hole, :processing_position, :rpm, :standard_setting_time, :tool_part_quantity, :product_line_id, :facility_type_id, :facility_code_id, :workshop_process_id, :engine_model_ids, :setting_device_id, :setting_type_id, :items_attributes, :confirmed, :stock_status
