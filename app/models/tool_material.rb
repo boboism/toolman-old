@@ -74,7 +74,7 @@ class ToolMaterial < ActiveRecord::Base
   def append_serving_part(index = nil)
     index = index || serving_parts.map{ |part| part.tool_no }.max_by{|no| no.last(2).to_i }
     self.serving_parts.build(
-      :part_no => "#{self.model}/#{'%02d'%index}",
+      :part_no => "#{self.tool_no}/#{'%02d'%index}",
       :category => self.category,
       :sub_category => self.sub_category,
       :model => self.model,

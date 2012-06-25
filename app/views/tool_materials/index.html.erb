@@ -34,9 +34,9 @@
         <td><%= tool_material.category %></td>
         <td><%= tool_material.sub_category %></td>
         <td><%= tool_material.model %></td>
-        <td><%= t(tool_material.standardized) %></td>
+        <td><%= t(tool_material.standardized.to_s) %></td>
         <td><%= tool_material.service_quantity %></td>
-        <td><%= t(tool_material.sharpen_part) %></td>
+        <td><%= t(tool_material.sharpen_part.to_s) %></td>
         <td><%= l(tool_material.created_at) %></td>
         <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), tool_material, class: 'btn-show' %>

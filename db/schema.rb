@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120601005453) do
+ActiveRecord::Schema.define(:version => 20120625103413) do
 
   create_table "archives", :force => true do |t|
     t.string   "type"
@@ -107,6 +107,34 @@ ActiveRecord::Schema.define(:version => 20120601005453) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "combination_tool_items", :force => true do |t|
+    t.integer  "combination_tool_id"
+    t.integer  "tool_part_id"
+    t.string   "stock_status"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "combination_tool_items", ["combination_tool_id"], :name => "index_combination_tool_items_on_combination_tool_id"
+  add_index "combination_tool_items", ["stock_status"], :name => "index_combination_tool_items_on_stock_status"
+  add_index "combination_tool_items", ["tool_part_id"], :name => "index_combination_tool_items_on_tool_part_id"
+
+  create_table "combination_tools", :force => true do |t|
+    t.integer  "assembly_tool_id"
+    t.string   "stock_status"
+    t.integer  "stock_out_operator"
+    t.datetime "stock_out_date"
+    t.integer  "stock_in_operator"
+    t.datetime "stock_in_date"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "combination_tools", ["assembly_tool_id"], :name => "index_combination_tools_on_assembly_tool_id"
+  add_index "combination_tools", ["stock_in_operator"], :name => "index_combination_tools_on_stock_in_operator"
+  add_index "combination_tools", ["stock_out_operator"], :name => "index_combination_tools_on_stock_out_operator"
+  add_index "combination_tools", ["stock_status"], :name => "index_combination_tools_on_stock_status"
 
   create_table "engine_models", :force => true do |t|
     t.string   "name"

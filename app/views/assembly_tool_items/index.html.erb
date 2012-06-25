@@ -20,8 +20,6 @@
       <th><%= model_class.human_attribute_name(:assembly_tool) %></th>
       <th><%= model_class.human_attribute_name(:tool_material) %></th>
       <th><%= model_class.human_attribute_name(:quantity) %></th>
-      <th><%= model_class.human_attribute_name(:serving_parts) %></th>
-      <th><%= model_class.human_attribute_name(:assembled) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= t('.actions', default: t('helpers.actions')) %></th>
     </tr>
@@ -32,14 +30,6 @@
         <td><%= assembly_tool_item.assembly_tool %></td>
         <td><%= assembly_tool_item.tool_material %></td>
         <td><%= assembly_tool_item.quantity %></td>
-        <td>
-          <ol>
-            <% assembly_tool_item.serving_parts.each do |part| %>
-              <li><%= part %></li>
-            <% end %>
-          </ol>
-        </td>
-        <td><%= t assembly_tool_item.assembled.to_s %></td>
         <td><%= l(assembly_tool_item.created_at) %></td>
         <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), assembly_tool_item_path(@assembly_tool, assembly_tool_item), class: 'btn-show' %>

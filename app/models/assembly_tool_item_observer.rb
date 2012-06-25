@@ -1,6 +1,6 @@
 class AssemblyToolItemObserver < ActiveRecord::Observer
   def before_save(item)
-    judge_assembled(item)
+    #judge_assembled(item)
 
     item
   end

@@ -319,6 +319,8 @@ zh-CN:
         feed_speed: 'F(mm/min)'
         blade_quantity: 'fz(tooth)'
         standard_setting_time: '标准调刀工时'
+        setting_device: '调刀设备'
+        setting_type: '调刀方式'
         created_at: '创建时间'
         items: '组合刀具子项'
 
