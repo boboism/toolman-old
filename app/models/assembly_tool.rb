@@ -34,6 +34,7 @@ class AssemblyTool < ActiveRecord::Base
 
   scope :assembled, where(:assembled => true)
   scope :confirmed, where(:confirmed => true)
+  scope :not_confirmed, where(:confirmed => false)
   scope :stocked_in, where(:stock_status => 'I')
   scope :stocked_out, where(:stock_status => 'O')
 
@@ -88,8 +89,8 @@ class AssemblyTool < ActiveRecord::Base
 
   def confirm!
     ActiveRecord::Base.transaction do
-      self.assembled = self.items.all? { |item| item.assembled }
-      self.confirmed = true if self.assembled
+      #self.assembled = self.items.all? { |item| item.assembled }
+      self.confirmed = true #if self.assembled
       self.save
     end
   end

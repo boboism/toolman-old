@@ -56,14 +56,14 @@ class AssemblyToolsController < ApplicationController
   # PUT /assembly_tools/1
   # PUT /assembly_tools/1.json
   def update
-    @assembly_tool = AssemblyTool.find(params[:id])
+    @assembly_tool = AssemblyTool.find_by_id(params[:id])
 
     respond_to do |format|
-      if @assembly_tool.update_attributes(params[:assembly_tool])
+      if !@assembly_tool.confirmed && @assembly_tool.update_attributes(params[:assembly_tool])
         format.html { redirect_to @assembly_tool, notice: 'Assembly tool was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to @assembly_tool, :notice => 'update failed.' }
         format.json { render json: @assembly_tool.errors, status: :unprocessable_entity }
       end
     end
