@@ -4,7 +4,7 @@ class BarcodeObserver < ActiveRecord::Observer
   require 'barby/barcode/code_128'
   require 'barby/barcode/qr_code'
 
-  observe :tool_material, :tool_part
+  #observe :tool_material, :tool_part
 
   def after_validation(record)
     generate_barcode(record)

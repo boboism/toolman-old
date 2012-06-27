@@ -1,5 +1,6 @@
 Toolman::Application.routes.draw do
 
+  resources :data_injections, :only => [:create, :new, :index, :show]
 
   resources :combination_tools
 

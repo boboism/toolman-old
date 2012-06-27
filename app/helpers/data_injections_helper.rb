@@ -1,0 +1,2 @@
+module DataInjectionsHelper
+end

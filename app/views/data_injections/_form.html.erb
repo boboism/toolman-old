@@ -1,0 +1,9 @@
+<%= simple_form_for :archive, :url => data_injections_path, :html => { :multipart => true }  do |f| %>
+    <div class="form-inputs">
+      <label><%= t('.upload_label') %></label>
+      <%= f.file_field :archive %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, t('helpers.links.upload') %> 
+    </div>
+<% end %>

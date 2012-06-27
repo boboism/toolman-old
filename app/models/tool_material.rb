@@ -20,7 +20,6 @@ class ToolMaterial < ActiveRecord::Base
   has_many :in_service_tool_parts
   has_many :retired_tool_parts
   has_many :serving_parts, :class_name => :ToolPart, :foreign_key => :tool_material_id, :conditions => {:in_service => true}, :autosave => true, :dependent => :destroy
-  has_many :serving_hilts, :through => :serving_parts, :conditions => {:category_id => 4}
   has_many :retired_parts, :class_name => :ToolPart, :foreign_key => :tool_material_id, :conditions => {:in_service => false}, :autosave => true, :dependent => :destroy
 
   accepts_nested_attributes_for :technical_info, :allow_destroy => true, :reject_if => :all_blank
@@ -31,7 +30,9 @@ class ToolMaterial < ActiveRecord::Base
   accepts_nested_attributes_for :serving_parts, :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :retired_parts, :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :barcode, :allow_destroy => true, :reject_if => :all_blank 
-  accepts_nested_attributes_for :qrcode, :allow_destroy => true, :reject_if => :all_blank 
+  accepts_nested_attributes_for :qrcode, :allow_destroy => true, :reject_if => :all_blank
+
+  scope :hilts, where(:category_id => 4) #lambda{{:conditions => {:category_id => 4}}}
 
   def assembled_quantity
     self.in_service_tool_parts.count{ |part| part.in_service? }
