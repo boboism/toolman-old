@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap_and_overrides
 */
 
 @import "bootstrap";
@@ -57,14 +57,11 @@
   @extend .table;
   @extend .table-bordered;
   
-  thead tr th {
-    @extend .btn-large;
-  }
-
   tbody tr td {
     margin: 0px;
     text-align: center;
     width: 85px;
+
     a {
       @extend .btn;
       @extend .btn-large;
@@ -82,8 +79,19 @@
   @extend .table-striped;
   @extend .table-condensed;
 
-  thead tr th {
-    text-align: center;
+  thead tr {
+    th {
+      text-align: center;
+    }
+    th:not(:last-child) {
+      max-width: 80px;
+    }
+  }
+
+  tbody tr {
+    td:not(:last-child) {
+      max-width: 80px;  
+    }  
   }
 
   .btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print {

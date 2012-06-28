@@ -243,7 +243,7 @@ zh-CN:
         model: '型号'
         standardized: '标准品'
         service_quantity: '启用数量'
-        sharpen_part: '是否需要研磨/转角'
+        sharpen_part: '研磨品'
         base_info: '基础信息'
         technical_info: '寿命参数'
         physical_info: '规格'

@@ -5,7 +5,7 @@ class ToolMaterialsController < ApplicationController
   # GET /tool_materials
   # GET /tool_materials.json
   def index
-    @tool_materials = ToolMaterial.all
+    @tool_materials = ToolMaterial.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
