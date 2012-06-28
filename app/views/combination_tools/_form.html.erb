@@ -1,13 +1,13 @@
-<%= simple_form_for(@combination_tool) do |f| %>
+<%= simple_form_for(@combination_tool, :html => { :class => 'form-horizontal' }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.association :assembly_tool %>
     <%= f.input :stock_status %>
-    <%= f.input :stock_out_operator %>
-    <%= f.input :stock_out_date %>
-    <%= f.input :stock_in_operator %>
-    <%= f.input :stock_in_date %>
+    <%= f.association :stock_out_operator %>
+    <%= f.input :stock_out_date, :as => :date_picker %>
+    <%= f.association :stock_in_operator %>
+    <%= f.input :stock_in_date, :as => :date_picker %>
   </div>
 
   <div class="form-actions">

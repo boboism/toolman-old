@@ -2,7 +2,7 @@ class FacilityTypesController < ApplicationController
   # GET /facility_types
   # GET /facility_types.json
   def index
-    @facility_types = FacilityType.all
+    @facility_types = FacilityType.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -33,8 +33,12 @@ class ServiceStockOrdersController < ApplicationController
   end
 
   def new_in
+    now = Date.new
     @service_stock_order = current_user.service_stock_orders.stock_in.new(
-      :operator => current_user)
+      :operator => current_user,
+      :doc_date => now,
+      :operation_date => now
+    )
 
     respond_to do |format|
       format.html { render "new" }

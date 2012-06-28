@@ -65,11 +65,11 @@ zh-CN:
         one: '设计图'
         other: '设计图'
       assembly_tool_item:
-        one: '组合刀具子项'
-        other: '组合刀具子项'
+        one: '刀具装配表子项'
+        other: '刀具装配表子项'
       assembly_tool:
-        one: '组合刀具'
-        other: '组合刀具'
+        one: '刀具装配表'
+        other: '刀具装配表'
       in_service_tool_part:
         one: '在用刀具零件'
         other: '在用刀具零件'
@@ -102,7 +102,7 @@ zh-CN:
         other: '报废单明细'
     attributes:
       tunning_work_order:
-        assembly_tool: '组合刀具'
+        assembly_tool: '刀具装配表'
         doc_user: '记录人'
         doc_date: '记录日期'
         completed: '已记录工时'
@@ -287,7 +287,7 @@ zh-CN:
         
       assembly_tool_item:
         id: 'ID'
-        assembly_tool: '所属组合刀具'
+        assembly_tool: '所属刀具装配表'
         tool_material: '刀具物料数据'
         quantity: '安装数量'
         uom: '单位'
@@ -322,7 +322,7 @@ zh-CN:
         setting_device: '调刀设备'
         setting_type: '调刀方式'
         created_at: '创建时间'
-        items: '组合刀具子项'
+        items: '刀具装配表子项'
 
       in_service_tool_part:
         id: 'ID'
@@ -371,7 +371,7 @@ zh-CN:
 
       scrap_order:
         id: 'ID'
-        assembly_tool: '组合刀具'
+        assembly_tool: '刀具装配表'
         doc_user: '记录人'
         doc_date: '记录日期'
         confirmed: '已确认'

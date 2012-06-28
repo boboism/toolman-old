@@ -2,7 +2,7 @@ class SettingDevicesController < ApplicationController
   # GET /setting_devices
   # GET /setting_devices.json
   def index
-    @setting_devices = SettingDevice.all
+    @setting_devices = SettingDevice.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

@@ -6,6 +6,7 @@
 <% end %>
 <h1><%=t '.title', default: model_class.model_name.human.pluralize %></h1>
 
+<%= will_paginate @categories %>
 <div class='operation-group'>
   <div class='action-group'>
     <%= link_to t('.new', default: t('helpers.links.new')), new_category_path, class: 'btn-new' %>    
@@ -34,3 +35,4 @@
   </tr>
 <% end %>
 </table>
+<%= will_paginate @categories %>

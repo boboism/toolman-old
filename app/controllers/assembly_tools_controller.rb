@@ -2,7 +2,7 @@ class AssemblyToolsController < ApplicationController
   # GET /assembly_tools
   # GET /assembly_tools.json
   def index
-    @assembly_tools = AssemblyTool.all
+    @assembly_tools = AssemblyTool.includes(:engine_models).includes(:facility_type).includes(:facility_code).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

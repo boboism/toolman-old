@@ -2,7 +2,7 @@ class EngineModelsController < ApplicationController
   # GET /engine_models
   # GET /engine_models.json
   def index
-    @engine_models = EngineModel.all
+    @engine_models = EngineModel.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

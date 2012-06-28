@@ -2,7 +2,7 @@ class FacilityCodesController < ApplicationController
   # GET /facility_codes
   # GET /facility_codes.json
   def index
-    @facility_codes = FacilityCode.all
+    @facility_codes = FacilityCode.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

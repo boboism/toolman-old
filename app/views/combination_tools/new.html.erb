@@ -1,5 +1,12 @@
-<h1>New combination_tool</h1>
+<% content_for :breadcrumb do %>
+  <li><%= link_to t('views.home.title', default: 'Home'), root_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= link_to t('manufacturers.index.title'), manufacturers_path %></li>
+  <li><span class='divider'>/</span></li>
+  <li><%= t('.title') %></li>
+<% end %>
+<h1><%=t '.title'%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', combination_tools_path %>
+<%= link_to t('helpers.links.back') , manufacturers_path, class: 'btn-back' %>

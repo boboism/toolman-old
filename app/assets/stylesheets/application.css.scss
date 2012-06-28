@@ -8,8 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require bootstrap_and_overrides
+ *= require bootstrap-datepicker
+ *= require_self
 */
 
 @import "bootstrap";
@@ -26,14 +27,43 @@
     page-break-before: always;
   }
 }
-
 .footer {
   @extend .breadcrumb;
   @extend .footer;
   margin-top: 10px;
   text-align: center;
 }
+.box { 
+  background-color: #fff;
+  padding:10px;  
+  margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.25);
+  -moz-box-shadow: 0 1px 5px rgba(0,0,0,.25);
+  box-shadow: 0 1px 5px rgba(0,0,0,.25);
+  h2.title {
+    font-size: 12px;
+    margin:0 -10px; padding:0 10px; margin-bottom:8px;
+    color:#999; line-height:100%;
+    border-bottom:1px solid #ddd; padding-bottom:8px;
+  }
+}
+.container { width:960px; }
+.container-fluid { padding:0; }
+.container-fluid > .sidebar {
+  position:absolute;
+  left:auto;
+  right:0;
+  top:0;
+  width: 240px;
+}
 
+.container-fluid > .content {
+   margin-left:0;
+   margin-right: 260px;
+}
 .content {
   background-color: #eee;
   padding: 20px;
@@ -84,25 +114,29 @@
       text-align: center;
     }
     th:not(:last-child) {
-      max-width: 80px;
+      max-width: 100px;
     }
   }
 
   tbody tr {
     td:not(:last-child) {
-      max-width: 80px;  
+      max-width: 100px;  
     }  
   }
-
-  .btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print {
-    @extend .btn-small;
+  .btn-group {
+    .btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print {
+      @extend .btn-small;
+    }
   }
 }
 
-.btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print {
+.btn-show, .btn-edit, .btn-danger, .btn-new, .btn-back, .btn-new, .btn-back, .btn-confirm, .btn-xls, .btn-print, .btn-upload {
   @extend .btn;
 }
 .btn-edit {
+  @extend .btn-primary;
+}
+.btn-upload {
   @extend .btn-primary;
 }
 .btn-destroy {

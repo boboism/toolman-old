@@ -8,6 +8,9 @@
     <meta name="author" content="">
     <title><%= content_for?(:title) ? yield(:title) : t('views.application.title') %></title>
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <!--[if IE 6]>
+    <%= stylesheet_link_tag "ie6" %>
+    <![endif]-->
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -30,6 +33,9 @@
 
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <%= javascript_include_tag "html5" %>
+    <![endif]-->
   </body>
 </html>

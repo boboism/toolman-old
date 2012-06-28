@@ -32,8 +32,8 @@
 <fieldset>
   <legend><%= @tool_material.class.human_attribute_name(:purchase_info) %></legend>
   <p><b><%= purchase_info.human_attribute_name(:purchase_no) %>:</b><%= @tool_material.purchase_info.purchase_no if @tool_material.purchase_info %></p>
-  <p><b><%= purchase_info.human_attribute_name(:manufacturer) %>:</b><%= @tool_material.purchase_info.manufacturer.name if @tool_material.purchase_info %></p>
-  <p><b><%= purchase_info.human_attribute_name(:agency) %>:</b><%= @tool_material.purchase_info.agency.name if @tool_material.purchase_info %></p>
+  <p><b><%= purchase_info.human_attribute_name(:manufacturer) %>:</b><%= @tool_material.purchase_info.manufacturer.name if @tool_material.purchase_info && @tool_material.purchase_info.manufacturer %></p>
+  <p><b><%= purchase_info.human_attribute_name(:agency) %>:</b><%= @tool_material.purchase_info.agency.name if @tool_material.purchase_info && @tool_material.purchase_info.agency %></p>
   <p><b><%= purchase_info.human_attribute_name(:unit_price) %>:</b><%= @tool_material.purchase_info.unit_price if @tool_material.purchase_info %></p>
   <p><b><%= purchase_info.human_attribute_name(:quantity) %>:</b><%= @tool_material.purchase_info.quantity if @tool_material.purchase_info %></p>
 </fieldset>

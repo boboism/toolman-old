@@ -2,7 +2,7 @@ class AgenciesController < ApplicationController
   # GET /agencies
   # GET /agencies.json
   def index
-    @agencies = Agency.all
+    @agencies = Agency.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

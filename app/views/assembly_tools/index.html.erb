@@ -12,6 +12,7 @@
   </div>
 </div>
 
+<%= will_paginate @assembly_tools %>
 <table class='table-listed'>
   <thead>
     <tr>
@@ -21,7 +22,7 @@
       <th><%= model_class.human_attribute_name(:facility_code) %></th>
       <th><%= model_class.human_attribute_name(:workshop_process) %></th>
       <th><%= model_class.human_attribute_name(:hilt_no) %></th>
-      <th><%= model_class.human_attribute_name(:assembled) %></th>
+      <!--<th><%= model_class.human_attribute_name(:assembled) %></th>-->
       <th><%= model_class.human_attribute_name(:confirmed) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%= t('.actions', default: t('helpers.actions')) %></th>
@@ -36,16 +37,18 @@
         <td><%= assembly_tool.facility_code %></td>
         <td><%= assembly_tool.workshop_process %></td>
         <td><%= assembly_tool.hilt_no %></td>
-        <td><%= t assembly_tool.assembled.to_s %></td>
+        <!--<td><%= t assembly_tool.assembled.to_s %></td>-->
         <td><%= t assembly_tool.confirmed.to_s %></td>
         <td><%= l(assembly_tool.created_at) %></td>
         <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), assembly_tool, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_assembly_tool_path(assembly_tool), class: 'btn-edit' %>
+          <%= link_to t('.index_assembly_tool_items', default: t('helpers.links.new')), assembly_tool_items_path(assembly_tool), class: 'btn-new' %>
           <%= link_to t('.confirm', default: t('helpers.links.confirm')), confirm_assembly_tool_path(assembly_tool), :method => :put, class: 'btn-edit' %>
           <%= link_to t('.destroy', default: t('helpers.links.destroy')), assembly_tool, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %>
-          <%= link_to t('.index_assembly_tool_items', default: t('helpers.links.new')), assembly_tool_items_path(assembly_tool), class: 'btn-new' %></div></td>
+      </div></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @assembly_tools %>

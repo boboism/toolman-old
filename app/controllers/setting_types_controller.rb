@@ -2,7 +2,7 @@ class SettingTypesController < ApplicationController
   # GET /setting_types
   # GET /setting_types.json
   def index
-    @setting_types = SettingType.all
+    @setting_types = SettingType.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

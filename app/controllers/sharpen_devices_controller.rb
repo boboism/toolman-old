@@ -2,7 +2,7 @@ class SharpenDevicesController < ApplicationController
   # GET /sharpen_devices
   # GET /sharpen_devices.json
   def index
-    @sharpen_devices = SharpenDevice.all
+    @sharpen_devices = SharpenDevice.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

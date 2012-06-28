@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :product_line %>
+    <%= f.association :product_line, :as => :radio_buttons, :item_wrapper_class => :inline %>
     <%= f.association :facility_type %>
-    <%= f.association :facility_code %>
+    <%= f.association :facility_code, :as => :radio_buttons, :item_wrapper_class => :inline %>
     <%= f.association :workshop_process %>
     <%= f.association :engine_models, as: :check_boxes, multiple: true %>
     <%= f.input :hilt_no %>

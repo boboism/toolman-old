@@ -9,7 +9,6 @@ zh-CN:
       edit_account: '用户:%{name}'
       company:
         title: '广州汽车集团乘用车有限公司'
-
   home:
     index:
       quality:
@@ -34,10 +33,11 @@ zh-CN:
         setting_type: '调刀方式'
         setting_device: '调刀设备'
         sharpen_device: '磨床'
+        data_injection: '数据导入'
       tool_management:
         title: '刀具管理'
         tool_material: '刀具零件'
-        assembly_tool: '组合刀具'
+        assembly_tool: '刀具装配表'
         barcode_generator: '条码生成'
       sharpen:
         title: '刃磨管理'
@@ -176,7 +176,7 @@ zh-CN:
   tool_materials:
     index:
       title: '刀具零件信息列表'
-      index_in_service_tool_parts: '在用明细'
+      index_in_service_tool_parts: '零件'
     new:
       title: '新增刀具零件信息'
     show:
@@ -207,33 +207,33 @@ zh-CN:
 
   assembly_tools:
     index:
-      title: '组合刀具列表'
-      index_assembly_tool_items: '子项信息'
+      title: '刀具装配表列表'
+      index_assembly_tool_items: '组成子项'
     new:
-      title: '新增组合刀具信息'
+      title: '新增刀具装配表信息'
     show:
-      title: '显示组合刀具信息'
+      title: '显示刀具装配表信息'
     edit:
-      title: '编辑组合刀具信息'
+      title: '编辑刀具装配表信息'
     form:
-      assembly_tool_item: '组合刀具子项'
+      assembly_tool_item: '刀具装配表子项'
 
   assembly_tool_items:
     index:
-      title: '组合刀具子项列表'
+      title: '刀具装配表子项列表'
     new:
-      title: '新建组合刀具子项信息'
+      title: '新建刀具装配表子项信息'
     show:
-      title: '显示组合刀具子项信息'
+      title: '显示刀具装配表子项信息'
     edit:
-      title: '编辑组合刀具子项信息'
+      title: '编辑刀具装配表子项信息'
 
   tunning_work_orders:
     index:
       title: '工时工单列表'
       index_setting_item: '调刀明细'
       index_sharpen_item: '磨刀明细'
-      new-remind: '点击【新建】按钮后，选择组合刀具后提交，再继续编辑调刀工时以及磨刀工时'
+      new-remind: '点击【新建】按钮后，选择刀具装配表后提交，再继续编辑调刀工时以及磨刀工时'
       confirm-remind: '在确认前，请先提供有效工时信息'
     new:
       title: '新建工时工单'
@@ -261,7 +261,7 @@ zh-CN:
       replace: '更换零件'
     show:
       title: '显示报废单'
-      edit-remind: '在新建【报废单】并且选择了【组合刀具】后，可以点击编辑来进一步选择要报废的【刀具零件】。'
+      edit-remind: '在新建【报废单】并且选择了【刀具装配表】后，可以点击编辑来进一步选择要报废的【刀具零件】。'
     edit:
       title: '编辑报废单'
     new:
@@ -320,4 +320,14 @@ zh-CN:
       title: '编辑出入库记录'
     show:
       title: '显示出入库记录'
-
+  data_injections:
+    index:
+      title: '数据上传'
+      upload_success: '数据上传成功'
+    new:
+      title: '新增数据导入'
+    form:
+      upload_label: '上传'
+  combination_tools:
+    index:
+      title: ''

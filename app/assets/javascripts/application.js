@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require bootstrap-datepicker
 
 $(function(){
   $('.btn-new, .btn-edit, .btn-destroy, .btn-print, .btn-show').popover();    
+  // bootstrap datepicker
+  $('.datepicker').datepicker({format: 'yyyy-mm-dd',weekStart: 1, autoclose: true, language: 'zh-CN'});
 });

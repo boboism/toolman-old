@@ -23,6 +23,7 @@ gem "bootstrap-sass", ">= 2.0.1"
 gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
 gem "bootstrap-will_paginate"
+gem 'bootstrap-datepicker-rails'
 gem "therubyracer", :group => :assets, :platform => :ruby
 gem "default_value_for"
 gem "spreadsheet"

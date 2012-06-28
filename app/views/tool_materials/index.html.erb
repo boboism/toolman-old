@@ -24,7 +24,7 @@
       <th><%= model_class.human_attribute_name(:standardized) %></th>
       <th><%= model_class.human_attribute_name(:service_quantity) %></th>
       <th><%= model_class.human_attribute_name(:sharpen_part) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <!--      <th><%= model_class.human_attribute_name(:created_at) %></th>-->
       <th><%= t('.actions', default: t('helpers.actions')) %></th>
     </tr>
   </thead>
@@ -38,12 +38,12 @@
         <td><%= t(tool_material.standardized.to_s) %></td>
         <td><%= tool_material.service_quantity %></td>
         <td><%= t(tool_material.sharpen_part.to_s) %></td>
-        <td><%= l(tool_material.created_at) %></td>
+        <!--<td><%= l(tool_material.created_at) %></td>-->
         <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), tool_material, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_tool_material_path(tool_material), class: 'btn-edit' %>
           <%= link_to t('.index_in_service_tool_parts', default: t('helpers.links.distribute')), tool_material_serving_parts_path(tool_material), class: 'btn-new' %>
-          <%= link_to t('.print', default: t('helpers.links.print')), print_tool_material_path(tool_material, :format => :pdf), class: 'btn-print' %>
+          <!--<%= link_to t('.print', default: t('helpers.links.print')), print_tool_material_path(tool_material, :format => :pdf), class: 'btn-print' %>-->
           <%= link_to t('.destroy', default: t('helpers.links.destroy')), tool_material, confirm: t('.confirm', default: t('helpers.links.destroy_confirm', default: 'Are you sure?')), method: :delete, class: 'btn-destroy' %>
         </div></td>
       </tr>
