@@ -10,24 +10,23 @@
   <li><%= t('.title') %></li>
 <% end %>
 <h1><%= t('.title') %></h1>
-<%= image_tag @tool_material.barcode.archive.url %>
-<%= image_tag @tool_material.qrcode.archive.url %>
+<%= image_tag @tool_material.barcode.archive.url if @tool_material.barcode %>
+<%= image_tag @tool_material.qrcode.archive.url if @tool_material.qrcode %>
 <fieldset>
   <legend><%= @tool_material.class.human_attribute_name(:base_info) %></legend>
-  <p><b><%= @tool_material.class.human_attribute_name(:tool_no) %>:</b><%= @tool_material %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:tool_no) %>:</b><%= @tool_material.tool_no %></p>
   <p><b><%= @tool_material.class.human_attribute_name(:category) %>:</b><%= @tool_material.category %></p>
   <p><b><%= @tool_material.class.human_attribute_name(:sub_category) %>:</b><%= @tool_material.sub_category %></p>
   <p><b><%= @tool_material.class.human_attribute_name(:model) %>:</b><%= @tool_material.model %></p>
-  <p><b><%= @tool_material.class.human_attribute_name(:standardized) %>:</b><%= t(@tool_material.standardized) %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:is_standard) %>:</b><%= t(@tool_material.is_standard) %></p>
+  <p><b><%= @tool_material.class.human_attribute_name(:is_sharpen_part) %>:</b><%= t(@tool_material.is_sharpen_part) %></p>
   <p><b><%= @tool_material.class.human_attribute_name(:service_quantity) %>:</b><%= @tool_material.service_quantity %></p>
-  <p><b><%= @tool_material.class.human_attribute_name(:sharpen_part) %>:</b><%= t(@tool_material.sharpen_part) %></p>
 </fieldset>
 
 <fieldset>
   <legend><%= @tool_material.class.human_attribute_name(:technical_info) %></legend>
   <p><b><%= technical_info.human_attribute_name(:sharpen_time) %>:</b><%= @tool_material.technical_info.sharpen_time if @tool_material.technical_info %></p>
-  <p><b><%= technical_info.human_attribute_name(:expected_quantity) %>:</b><%= @tool_material.technical_info.expected_quantity if @tool_material.technical_info %></p>
-  <p><b><%= technical_info.human_attribute_name(:actual_quantity) %>:</b><%= @tool_material.technical_info.actual_quantity if @tool_material.technical_info %></p>
+  <p><b><%= technical_info.human_attribute_name(:perform_quantity) %>:</b><%= @tool_material.technical_info.perform_quantity if @tool_material.technical_info %></p>
 </fieldset>
 <fieldset>
   <legend><%= @tool_material.class.human_attribute_name(:purchase_info) %></legend>

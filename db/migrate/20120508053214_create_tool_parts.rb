@@ -3,20 +3,20 @@ class CreateToolParts < ActiveRecord::Migration
     create_table :tool_parts do |t|
       t.string :type
       t.string :part_no
-      t.references :category
-      t.references :sub_category
+      t.integer :category_id
+      t.integer :sub_category_id
+      t.boolean :is_active
       t.string :model
-      t.integer :expected_sharpen_time
-      t.integer :actual_sharpen_time
-      t.integer :expected_quantity
-      t.integer :actual_quantity
+      t.integer :total_sharpen_time
+      t.integer :total_process_quantity
       t.date :effective_date
       t.date :expired_date
-      t.references :tool_material
+      t.integer :tool_material_id
 
       t.timestamps
     end
     add_index :tool_parts, :type
+    add_index :tool_parts, :is_active
     add_index :tool_parts, :part_no
     add_index :tool_parts, :category_id
     add_index :tool_parts, :sub_category_id

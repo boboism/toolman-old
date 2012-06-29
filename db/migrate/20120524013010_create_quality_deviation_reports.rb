@@ -2,7 +2,7 @@ class CreateQualityDeviationReports < ActiveRecord::Migration
   def change
     create_table :quality_deviation_reports do |t|
       t.string :doc_no
-      t.date :doc_date
+      t.boolean :is_confirm
       t.integer :category_1_id
       t.integer :category_2_id
       t.integer :category_3_id
@@ -27,6 +27,7 @@ class CreateQualityDeviationReports < ActiveRecord::Migration
       t.timestamps
     end
     add_index :quality_deviation_reports, :doc_no
+    add_index :quality_deviation_reports, :is_confirm
     add_index :quality_deviation_reports, :category_1_id
     add_index :quality_deviation_reports, :category_2_id
     add_index :quality_deviation_reports, :category_3_id

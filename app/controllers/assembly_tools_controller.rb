@@ -2,7 +2,7 @@ class AssemblyToolsController < ApplicationController
   # GET /assembly_tools
   # GET /assembly_tools.json
   def index
-    @assembly_tools = AssemblyTool.includes(:engine_models).includes(:facility_type).includes(:facility_code).page(params[:page])
+    @assembly_tools = AssemblyTool.includes(:engine_models).includes(:facility_type).includes(:facility_code).includes(:workshop_process).page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +40,7 @@ class AssemblyToolsController < ApplicationController
   # POST /assembly_tools
   # POST /assembly_tools.json
   def create
-    @assembly_tool = AssemblyTool.new(params[:assembly_tool])
+    @assembly_tool = AssemblyTool.not_confirmed.new(params[:assembly_tool])
 
     respond_to do |format|
       if @assembly_tool.save
@@ -59,7 +59,7 @@ class AssemblyToolsController < ApplicationController
     @assembly_tool = AssemblyTool.find_by_id(params[:id])
 
     respond_to do |format|
-      if !@assembly_tool.confirmed && @assembly_tool.update_attributes(params[:assembly_tool])
+      if !@assembly_tool.is_confirm && @assembly_tool.update_attributes(params[:assembly_tool])
         format.html { redirect_to @assembly_tool, notice: 'Assembly tool was successfully updated.' }
         format.json { head :no_content }
       else

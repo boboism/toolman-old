@@ -14,6 +14,7 @@
 <p><b><%= @assembly_tool.class.human_attribute_name(:hilt_no) %>:</b><%= @assembly_tool.hilt_no %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:processing_position) %>:</b><%= @assembly_tool.processing_position %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:processing_hole) %>:</b><%= @assembly_tool.processing_hole %></p>
+<!--
 <p><b><%= @assembly_tool.class.human_attribute_name(:tool_part_quantity) %>:</b><%= @assembly_tool.tool_part_quantity %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:rpm) %>:</b><%= @assembly_tool.rpm %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:first_velocity) %>:</b><%= @assembly_tool.first_velocity %></p>
@@ -21,14 +22,14 @@
 <p><b><%= @assembly_tool.class.human_attribute_name(:max_velocity) %>:</b><%= @assembly_tool.max_velocity %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:feed_speed) %>:</b><%= @assembly_tool.feed_speed %></p>
 <p><b><%= @assembly_tool.class.human_attribute_name(:blade_quantity) %>:</b><%= @assembly_tool.blade_quantity %></p>
-<p><b><%= @assembly_tool.class.human_attribute_name(:standard_setting_time) %>:</b><%= @assembly_tool.standard_setting_time %></p>
-<p><b><%= @assembly_tool.class.human_attribute_name(:assembly_tool_items) %>:</b><br><ol>
+-->
+<p><b><%= @assembly_tool.class.human_attribute_name(:setting_time) %>:</b><%= @assembly_tool.setting_time %></p>
+<p><b><%= @assembly_tool.class.human_attribute_name(:items) %>:</b><br><ol>
 <% @assembly_tool.items.each do |item| %>
   <li>
   <b><%= item.class.human_attribute_name(:tool_material) %>:</b><%= item.tool_material %><br>
   <b><%= item.class.human_attribute_name(:quantity) %>:</b><%= item.quantity %><br>
-  <b><%= item.class.human_attribute_name(:uom) %>:</b><%= item.uom %><br>
-  <b><%= item.class.human_attribute_name(:standard_sharpen_time) %>:</b><%= item.standard_sharpen_time %><br>
+  <b><%= item.class.human_attribute_name(:sharpen_time) %>:</b><%= item.sharpen_time %><br>
   </li>
 <% end %>
 </ol></p>

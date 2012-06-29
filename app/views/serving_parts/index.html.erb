@@ -27,10 +27,8 @@
       <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:sub_category) %></th>
       <th><%= model_class.human_attribute_name(:model) %></th>
-      <th><%= model_class.human_attribute_name(:expected_quantity) %></th>
-      <th><%= model_class.human_attribute_name(:expected_sharpen_time) %></th>
-      <th><%= model_class.human_attribute_name(:actual_quantity) %></th>
-      <th><%= model_class.human_attribute_name(:actual_sharpen_time) %></th>
+      <th><%= model_class.human_attribute_name(:total_process_quantity) %></th>
+      <th><%= model_class.human_attribute_name(:total_sharpen_time) %></th>
       <th style='width:130px'><%= t('.actions', default: t('helpers.actions')) %></th>
     </tr>
   </thead>
@@ -41,13 +39,8 @@
         <td><%= in_service_tool_part.category %></td>
         <td><%= in_service_tool_part.sub_category %></td>
         <td><%= in_service_tool_part.model %></td>
-        <td><%= in_service_tool_part.expected_quantity %></td>
-        <td><%= in_service_tool_part.expected_sharpen_time %></td>
-        <td><%= in_service_tool_part.actual_quantity %></td>
-        <td><%= in_service_tool_part.actual_sharpen_time %></td>
-        <!--
-        <td><%= l(in_service_tool_part.created_at) %></td>
-        -->
+        <td><%= in_service_tool_part.total_process_quantity %></td>
+        <td><%= in_service_tool_part.total_sharpen_time %></td>
         <td><div class='action-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), tool_material_serving_part_path(@tool_material, in_service_tool_part), class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_tool_material_serving_part_path(@tool_material, in_service_tool_part), class: 'btn-edit' %>

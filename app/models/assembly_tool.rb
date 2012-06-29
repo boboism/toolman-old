@@ -1,14 +1,5 @@
 class AssemblyTool < ActiveRecord::Base
-
-  default_value_for :product_line_id, 1
-  default_value_for :facility_type_id, 1
-  default_value_for :facility_code_id, 1
-  default_value_for :workshop_process_id, 1
-  default_value_for :setting_device_id, 1
-  default_value_for :setting_type_id, 1
-  default_value_for :assembled, false
-  default_value_for :confirmed, false
-  default_value_for :stock_status, 'I'
+  default_scope includes(:workshop_process)
 
   belongs_to :product_line
   belongs_to :facility_type
@@ -19,10 +10,9 @@ class AssemblyTool < ActiveRecord::Base
   has_many :assembly_tool_engine_model_ships
   has_many :engine_models, :through => :assembly_tool_engine_model_ships
   has_many :items, :class_name => :AssemblyToolItem
-  #has_many :serving_parts, :class_name => :ToolPart, :through => :items
   has_many :service_stock_orders, :class_name => :ServiceStockOrder, :autosave => true
 
-  attr_accessible :assembled, :blade_quantity, :feed_speed, :first_velocity, :hilt_no, :max_diameter, :max_velocity, :processing_hole, :processing_position, :rpm, :standard_setting_time, :tool_part_quantity, :product_line_id, :facility_type_id, :facility_code_id, :workshop_process_id, :engine_model_ids, :setting_device_id, :setting_type_id, :items_attributes, :confirmed, :stock_status
+  attr_accessible :blade_quantity, :feed_speed, :first_velocity, :hilt_no, :max_diameter, :max_velocity, :processing_hole, :processing_position, :rpm, :setting_time, :tool_part_quantity, :product_line_id, :facility_type_id, :facility_code_id, :workshop_process_id, :engine_model_ids, :setting_device_id, :setting_type_id, :items_attributes, :is_confirm, :stock_status
 
   accepts_nested_attributes_for :items, :allow_destroy => true, :reject_if => :all_blank
   
@@ -33,8 +23,8 @@ class AssemblyTool < ActiveRecord::Base
   alias to_s to_str
 
   scope :assembled, where(:assembled => true)
-  scope :confirmed, where(:confirmed => true)
-  scope :not_confirmed, where(:confirmed => false)
+  scope :confirmed, where(:is_confirm => true)
+  scope :not_confirmed, where(:is_confirm => false)
   scope :stocked_in, where(:stock_status => 'I')
   scope :stocked_out, where(:stock_status => 'O')
 
@@ -89,9 +79,8 @@ class AssemblyTool < ActiveRecord::Base
 
   def confirm!
     ActiveRecord::Base.transaction do
-      #self.assembled = self.items.all? { |item| item.assembled }
-      self.confirmed = true #if self.assembled
+      self.is_confirm = true
       self.save
-    end
+    end unless is_confirm
   end
 end

@@ -231,9 +231,8 @@ zh-CN:
 
       technical_info:
         id: 'ID'
-        sharpen_time: '设计研磨(转角)次数'
-        expected_quantity: '每次研磨设计寿命(件/长度)'
-        actual_quantity: '每次研磨实际寿命(件/长度)'
+        sharpen_time: '设计研磨次数'
+        perform_quantity: '单次研磨寿命'
 
       tool_material:
         id: 'ID'
@@ -241,9 +240,9 @@ zh-CN:
         category: '刀具类别'
         sub_category: '部品名称'
         model: '型号'
-        standardized: '标准品'
+        is_standard: '标准品'
         service_quantity: '启用数量'
-        sharpen_part: '研磨品'
+        is_sharpen_part: '研磨品'
         base_info: '基础信息'
         technical_info: '寿命参数'
         physical_info: '规格'
@@ -292,12 +291,12 @@ zh-CN:
         quantity: '安装数量'
         uom: '单位'
         uom_default: '个'
-        standard_sharpen_time: '标准磨刀工时'
+        sharpen_time: '标准磨刀工时'
         assembled: '已安装'
         serving_parts: '分配的刀具'
         sharpen_device: '磨床'
         created_at: '创建时间'
-        item_description: '%{quantity} %{uom} %{name}'
+        item_description: '%{quantity} %{name}'
 
       assembly_tool:
         id: 'ID'
@@ -309,8 +308,7 @@ zh-CN:
         processing_position: '加工位置'
         processing_hole: '加工孔号'
         engine_models: '发动机型号'
-        assembled: '完成安装'
-        confirmed: '已确认'
+        is_confirm: '已确认'
         tool_part_quantity: '刃数'
         rpm: 'S(r/min)'
         first_velocity: 'V一阶(m/min)'
@@ -318,7 +316,7 @@ zh-CN:
         max_velocity: 'Vmax(m/min)'
         feed_speed: 'F(mm/min)'
         blade_quantity: 'fz(tooth)'
-        standard_setting_time: '标准调刀工时'
+        setting_time: '标准调刀工时'
         setting_device: '调刀设备'
         setting_type: '调刀方式'
         created_at: '创建时间'
@@ -343,12 +341,10 @@ zh-CN:
         category: '刀具分类'
         sub_category: '部品名称'
         model: '型号'
-        expected_quantity: '设计单次加工件数'
-        expected_sharpen_time: '设计可研磨(转角)次数'
-        actual_quantity: '已加工总件数'
-        actual_sharpen_time: '已研磨(转角)总次数'
+        total_process_quantity: '累计加工件数'
+        total_sharpen_time: '累计研磨次数'
         tool_material: '刀具零件'
-        record_description: '%{tool_no}'
+        record_description: '%{part_no}'
         created_at: '创建时间'
 
       setting_device:
@@ -442,4 +438,15 @@ zh-CN:
         operator: '领用人'
         assembly_tool: '工具'
         created_at: '创建时间'
-
+      combination_tool:
+        assembly_tool: '刀具装配表'
+        stock_status: '发放/回收'
+        stock_status_type:
+          O: '发放'
+          I: '回收'
+        stock_out_date: '发放日期'
+        stock_in_date: '回收日期'
+        stock_out_operator: '发放操作人'
+        stock_in_operator: '回收操作人'
+        created_at: '创建时间'
+        updated_at: '更新时间'

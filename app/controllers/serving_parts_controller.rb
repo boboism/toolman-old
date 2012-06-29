@@ -21,11 +21,21 @@ class ServingPartsController < ApplicationController
   end
 
   def new
-    @in_service_tool_part = @tool_material.serving_parts.new
-
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @in_service_tool_part }
+      if @tool_material.not_over_service_quantity?
+        @in_service_tool_part = @tool_material.serving_parts.new(:part_no => @tool_material.tool_no,
+                                                                 :category_id => @tool_material.category.id,
+                                                                 :sub_category_id => @tool_material.sub_category.id,
+                                                                 :model => @tool_material.model,
+                                                                 :total_process_quantity => 0,
+                                                                 :total_sharpen_time => 0
+                                                                )
+        format.html # new.html.erb
+        format.json { render json: @in_service_tool_part }
+      else
+        format.html { redirect_to tool_material_serving_parts_url(@tool_material), :notice => 'Over service quantity.' }
+        format.json { render json: @in_service_tool_part.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -34,16 +44,10 @@ class ServingPartsController < ApplicationController
   end
 
   def create
-    @in_service_tool_part = @tool_material.serving_parts.new(params[:in_service_tool_part])
-    if @tool_material.current_service_quantity > @tool_material.service_quantity
-      respond_to do |format|
-        format.html { render action: "new" }
-        format.json { render json: @in_service_tool_part.errors, status: :unprocessable_entity }
-      end
-    end
+    @in_service_tool_part = @tool_material.serving_parts.build(params[:tool_part])
     respond_to do |format|
-      if @in_service_tool_part.save
-        format.html { redirect_to @in_service_tool_part, notice: 'In service tool part was successfully created.' }
+      if @tool_material.not_over_service_quantity? && @in_service_tool_part.save
+        format.html { redirect_to tool_material_serving_part_url(@tool_material,@in_service_tool_part), notice: 'In service tool part was successfully created.' }
         format.json { render json: @in_service_tool_part, status: :created, location: @in_service_tool_part }
       else
         format.html { render action: "new" }
@@ -59,8 +63,6 @@ class ServingPartsController < ApplicationController
       end
       return
     end
-    # @in_service_tool_parts = @tool_material.serving_parts
-    # arrange_tool_material_serving_parts(@tool_material)
 
     respond_to do |format|
       if @tool_material.mass_create_serving_parts
@@ -75,8 +77,8 @@ class ServingPartsController < ApplicationController
     @in_service_tool_part = @tool_material.serving_parts.find(params[:id])
 
     respond_to do |format|
-      if @in_service_tool_part.update_attributes(params[:in_service_tool_part])
-        format.html { redirect_to @in_service_tool_part, notice: 'In service tool part was successfully updated.' }
+      if @in_service_tool_part.update_attributes(params[:tool_part])
+        format.html { redirect_to tool_material_serving_part_url(@tool_material, @in_service_tool_part), notice: 'In service tool part was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -106,20 +108,4 @@ class ServingPartsController < ApplicationController
     @tool_material = ToolMaterial.find(params[:tool_material_id])
   end
 
-  def arrange_tool_material_serving_parts(tool_material)
-    tool_material.service_quantity.times do |index|
-      tool_part = tool_material.serving_parts.build
-      tool_part.part_no = "#{tool_material.tool_no}_#{index + 1}"
-      tool_part.category = tool_material.category
-      tool_part.sub_category = tool_material.sub_category
-      tool_part.model = tool_material.model
-      if tool_material.technical_info.nil?
-        tool_part.expected_quantity = 0
-        tool_part.expected_sharpen_time = 0 
-      else
-        tool_part.expected_quantity = tool_material.technical_info.expected_quantity
-        tool_part.expected_sharpen_time = tool_material.technical_info.sharpen_time
-      end
-    end
-  end
 end

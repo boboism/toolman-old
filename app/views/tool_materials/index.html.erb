@@ -21,10 +21,9 @@
       <th><%= model_class.human_attribute_name(:category) %></th>
       <th><%= model_class.human_attribute_name(:sub_category) %></th>
       <th><%= model_class.human_attribute_name(:model) %></th>
-      <th><%= model_class.human_attribute_name(:standardized) %></th>
       <th><%= model_class.human_attribute_name(:service_quantity) %></th>
-      <th><%= model_class.human_attribute_name(:sharpen_part) %></th>
-      <!--      <th><%= model_class.human_attribute_name(:created_at) %></th>-->
+      <th><%= model_class.human_attribute_name(:is_standard) %></th>
+      <th><%= model_class.human_attribute_name(:is_sharpen_part) %></th>
       <th><%= t('.actions', default: t('helpers.actions')) %></th>
     </tr>
   </thead>
@@ -35,10 +34,9 @@
         <td><%= tool_material.category %></td>
         <td><%= tool_material.sub_category %></td>
         <td><%= tool_material.model %></td>
-        <td><%= t(tool_material.standardized.to_s) %></td>
         <td><%= tool_material.service_quantity %></td>
-        <td><%= t(tool_material.sharpen_part.to_s) %></td>
-        <!--<td><%= l(tool_material.created_at) %></td>-->
+        <td><%= t(tool_material.is_standard.to_s) %></td>
+        <td><%= t(tool_material.is_sharpen_part.to_s) %></td>
         <td><div class='btn-group'>
           <%= link_to t('.show', default: t('helpers.links.show')), tool_material, class: 'btn-show' %>
           <%= link_to t('.edit', default: t('helpers.links.edit')), edit_tool_material_path(tool_material), class: 'btn-edit' %>

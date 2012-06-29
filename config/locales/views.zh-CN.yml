@@ -15,10 +15,10 @@ zh-CN:
         title: '质量管理'
         quality_deviation_report: '质量速报表'
       logistic:
-        title: '出入库管理'
-        in_out: '出入库查询'
-        in: '新增入库'
-        out: '新增出库'
+        title: '发放回收管理'
+        in_out: '发放/回收查询'
+        in: '发放'
+        out: '回收'
       masterdata:
         title: '基础数据维护'
         manufacturer: '厂家'

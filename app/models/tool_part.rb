@@ -1,12 +1,9 @@
 class ToolPart < ActiveRecord::Base
-  default_value_for :in_service, true
 
   belongs_to :category
   belongs_to :sub_category
   belongs_to :tool_material, :autosave => true
-  # belongs_to :assembly_tool_item, :include => :assembly_tool
-  # belongs_to :assembly_tool
-  attr_accessible :actual_quantity, :actual_sharpen_time, :effective_date, :expected_quantity, :expected_sharpen_time, :expired_date, :model, :part_no, :type, :in_service, :tool_material_id, :sub_category, :category
+  attr_accessible :total_sharpen_time, :effective_date, :total_process_quantity, :expired_date, :model, :part_no, :type, :is_active, :tool_material_id, :sub_category_id, :category_id
 
   has_one :scrap_order_item, :class_name => :ScrapOrderItem, :foreign_key => :scrap_tool_part_id
   has_one :scrap_order, :through => :scrap_order_item
@@ -14,28 +11,28 @@ class ToolPart < ActiveRecord::Base
   has_one :barcode, :as => :archivable, :dependent => :destroy
   has_one :qrcode, :as => :archivable, :dependent => :destroy
 
+  has_many :combination_tool_items
+  has_many :combination_tool_items_issued, :class_name => :CombinationToolItem, :conditions => { :stock_status => CombinationTool::STOCK_STATUS_ISSUE }
   accepts_nested_attributes_for :barcode, :allow_destroy => true, :reject_if => :all_blank
   accepts_nested_attributes_for :qrcode, :allow_destroy => true, :reject_if => :all_blank
 
-  def self.hilts
-    where(:category_id => 4)
-  end
-
+  scope :active, where(:is_active => true)
+  scope :not_active, where(:is_active => false)
 
   def self.scrapable(param = {})
     assembly_tool = param[:assembly_tool]
     p = ToolPart.arel_table
-    query = p[:in_service].eq(true)
+    query = p[:is_active].eq(true)
     query = query.or(p[:assembly_tool_item_id].in(assembly_tool.item_ids)) if assembly_tool
     where(query)
   end
 
   def self.retired
-    where(:in_service => false)
+    where(:is_active => false)
   end
 
-  def self.in_service
-    where(:in_service => true)
+  def self.is_active
+    where(:is_active => true)
   end
 
   def self.available(tp = {})
@@ -47,7 +44,7 @@ class ToolPart < ActiveRecord::Base
     assembly_tool_item_ids << assembly_tool_item.id if assembly_tool_item
     assembly_tool_item_ids << assembly_tool.items.map{|item| item.id} if assembly_tool
     tool_material = assembly_tool_item.tool_material if tool_material.nil? && assembly_tool_item
-    in_service
+    is_active
       .where(:conditions => {
         :tool_parts => {
           :assembly_tool_item_id => assembly_tool_item_ids
@@ -56,7 +53,7 @@ class ToolPart < ActiveRecord::Base
   end
 
   def retired!
-    in_service = false
+    is_active = false
     self
   end
 

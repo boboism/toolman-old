@@ -10,6 +10,14 @@ class ServiceStockOrder < ActiveRecord::Base
 
   accepts_nested_attributes_for :assembly_tool
 
+  def hilt_no=(value)
+    assembly_tool = AssemblyTool.find_by_hilt_no(value)
+  end
+  
+  def hilt_no
+    assembly_tool.hilt_no if assembly_tool
+  end
+
   def stock_in_order?
     io == 'I'
   end

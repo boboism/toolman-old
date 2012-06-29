@@ -13,8 +13,8 @@
 <p><b><%= @in_service_tool_part.class.human_attribute_name(:category) %></b>:<%= @in_service_tool_part.category %></p>
 <p><b><%= @in_service_tool_part.class.human_attribute_name(:sub_category) %></b>:<%= @in_service_tool_part.sub_category %></p>
 <p><b><%= @in_service_tool_part.class.human_attribute_name(:model) %></b>:<%= @in_service_tool_part.model %></p>
-<p><b><%= @in_service_tool_part.class.human_attribute_name(:expected_quantity) %></b>:<%= @in_service_tool_part.expected_quantity %></p>
-<p><b><%= @in_service_tool_part.class.human_attribute_name(:expected_sharpen_time) %></b>:<%= @in_service_tool_part.expected_sharpen_time %></p>
+<p><b><%= @in_service_tool_part.class.human_attribute_name(:total_process_quantity) %></b>:<%= @in_service_tool_part.total_process_quantity %></p>
+<p><b><%= @in_service_tool_part.class.human_attribute_name(:total_sharpen_time) %></b>:<%= @in_service_tool_part.total_sharpen_time %></p>
 <br>
 <%= link_to t('helpers.links.edit'), edit_tool_material_serving_part_path(@tool_material, @in_service_tool_part), class: 'btn-edit' %>
 <%= link_to t('helpers.links.back'), tool_material_serving_parts_path, class: 'btn-back' %>

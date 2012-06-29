@@ -8,14 +8,14 @@
     <%= f.association :category, as: :radio_buttons, item_wrapper_class: :inline %>
     <%= f.association :sub_category %>
     <%= f.input :model %>
-    <%= f.input :standardized %>
     <%= f.input :service_quantity %>
-    <%= f.input :sharpen_part %>
+    <%= f.input :is_standard %>
+    <%= f.input :is_sharpen_part %>
 
     <div class='header-info'><%= t('.technical_info') %></div>
     <%= f.simple_fields_for :technical_info do |ti| %>
       <%= ti.input :sharpen_time %>
-      <%= ti.input :expected_quantity %>
+      <%= ti.input :perform_quantity %>
     <% end %>
 
     <div class='header-info'><%= t('.purchase_info') %></div>

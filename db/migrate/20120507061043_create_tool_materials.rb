@@ -5,9 +5,9 @@ class CreateToolMaterials < ActiveRecord::Migration
       t.references :category
       t.references :sub_category
       t.string :model
-      t.boolean :standardized
       t.integer :service_quantity
-      t.boolean :sharpen_part
+      t.boolean :is_standard
+      t.boolean :is_sharpen_part
 
       t.timestamps
     end
@@ -15,5 +15,7 @@ class CreateToolMaterials < ActiveRecord::Migration
     add_index :tool_materials, :category_id
     add_index :tool_materials, :sub_category_id
     add_index :tool_materials, :model
+    add_index :tool_materials, :is_standard
+    add_index :tool_materials, :is_sharpen_part
   end
 end

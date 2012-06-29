@@ -5,7 +5,8 @@ class CreateServiceStockOrders < ActiveRecord::Migration
       t.integer :doc_user_id
       t.datetime :doc_date
       t.integer :operator_id
-      t.references :assembly_tool
+      t.datetime :operation_date
+      t.integer :assembly_tool_id
 
       t.timestamps
     end

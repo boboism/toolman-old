@@ -10,6 +10,7 @@
     <%= f.input :hilt_no %>
     <%= f.input :processing_position %>
     <%= f.input :processing_hole %>
+    <!--
     <%= f.input :tool_part_quantity %>
     <%= f.input :rpm %>
     <%= f.input :first_velocity %>
@@ -17,16 +18,16 @@
     <%= f.input :max_velocity %>
     <%= f.input :feed_speed %>
     <%= f.input :blade_quantity %>
+    -->
     <%= f.association :setting_device %>
     <%= f.association :setting_type %>
-    <%= f.input :standard_setting_time %>
+    <%= f.input :setting_time %>
     <%= f.simple_fields_for :items do |item| %>
       <div class='header-info'><%= t('.assembly_tool_item') %></div>
       <%= item.association :tool_material %>
       <%= item.input :quantity %>
-      <%= item.input :uom %>
       <%= item.association :sharpen_device %>
-      <%= item.input :standard_sharpen_time %>
+      <%= item.input :sharpen_time %>
     <% end %>
   </div>
 

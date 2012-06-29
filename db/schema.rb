@@ -17,12 +17,12 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.string   "type"
     t.integer  "archivable_id"
     t.string   "archivable_type"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
     t.string   "archive_file_name"
     t.string   "archive_content_type"
-    t.integer  "archive_file_size"
-    t.datetime "archive_updated_at"
+    t.string   "archive_file_size"
+    t.string   "archive_updated_at"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   add_index "archives", ["archivable_id"], :name => "index_archives_on_archivable_id"
@@ -52,15 +52,12 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.integer  "assembly_tool_id"
     t.integer  "tool_material_id"
     t.integer  "quantity"
-    t.string   "uom"
-    t.integer  "standard_sharpen_time"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-    t.boolean  "assembled"
     t.integer  "sharpen_device_id"
+    t.integer  "sharpen_time"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
-  add_index "assembly_tool_items", ["assembled"], :name => "index_assembly_tool_items_on_assembled"
   add_index "assembly_tool_items", ["assembly_tool_id"], :name => "index_assembly_tool_items_on_assembly_tool_id"
   add_index "assembly_tool_items", ["sharpen_device_id"], :name => "index_assembly_tool_items_on_sharpen_device_id"
   add_index "assembly_tool_items", ["tool_material_id"], :name => "index_assembly_tool_items_on_tool_material_id"
@@ -80,25 +77,21 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.decimal  "max_velocity"
     t.decimal  "feed_speed"
     t.decimal  "blade_quantity"
-    t.decimal  "standard_setting_time"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-    t.boolean  "assembled"
+    t.boolean  "is_confirm"
     t.integer  "setting_device_id"
     t.integer  "setting_type_id"
-    t.boolean  "confirmed"
-    t.string   "stock_status"
+    t.integer  "setting_time"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
-  add_index "assembly_tools", ["assembled"], :name => "index_assembly_tools_on_assembled"
-  add_index "assembly_tools", ["confirmed"], :name => "index_assembly_tools_on_confirmed"
   add_index "assembly_tools", ["facility_code_id"], :name => "index_assembly_tools_on_facility_code_id"
   add_index "assembly_tools", ["facility_type_id"], :name => "index_assembly_tools_on_facility_type_id"
   add_index "assembly_tools", ["hilt_no"], :name => "index_assembly_tools_on_hilt_no"
+  add_index "assembly_tools", ["is_confirm"], :name => "index_assembly_tools_on_is_confirm"
   add_index "assembly_tools", ["product_line_id"], :name => "index_assembly_tools_on_product_line_id"
   add_index "assembly_tools", ["setting_device_id"], :name => "index_assembly_tools_on_setting_device_id"
   add_index "assembly_tools", ["setting_type_id"], :name => "index_assembly_tools_on_setting_type_id"
-  add_index "assembly_tools", ["stock_status"], :name => "index_assembly_tools_on_stock_status"
   add_index "assembly_tools", ["workshop_process_id"], :name => "index_assembly_tools_on_workshop_process_id"
 
   create_table "categories", :force => true do |t|
@@ -123,17 +116,17 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
   create_table "combination_tools", :force => true do |t|
     t.integer  "assembly_tool_id"
     t.string   "stock_status"
-    t.integer  "stock_out_operator"
+    t.integer  "stock_out_operator_id"
     t.datetime "stock_out_date"
-    t.integer  "stock_in_operator"
+    t.integer  "stock_in_operator_id"
     t.datetime "stock_in_date"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   add_index "combination_tools", ["assembly_tool_id"], :name => "index_combination_tools_on_assembly_tool_id"
-  add_index "combination_tools", ["stock_in_operator"], :name => "index_combination_tools_on_stock_in_operator"
-  add_index "combination_tools", ["stock_out_operator"], :name => "index_combination_tools_on_stock_out_operator"
+  add_index "combination_tools", ["stock_in_operator_id"], :name => "index_combination_tools_on_stock_in_operator_id"
+  add_index "combination_tools", ["stock_out_operator_id"], :name => "index_combination_tools_on_stock_out_operator_id"
   add_index "combination_tools", ["stock_status"], :name => "index_combination_tools_on_stock_status"
 
   create_table "engine_models", :force => true do |t|
@@ -207,7 +200,7 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
 
   create_table "quality_deviation_reports", :force => true do |t|
     t.string   "doc_no"
-    t.date     "doc_date"
+    t.boolean  "is_confirm"
     t.integer  "category_1_id"
     t.integer  "category_2_id"
     t.integer  "category_3_id"
@@ -230,7 +223,6 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.text     "suggestion"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.boolean  "confirmed"
   end
 
   add_index "quality_deviation_reports", ["category_1_id"], :name => "index_quality_deviation_reports_on_category_1_id"
@@ -239,9 +231,9 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
   add_index "quality_deviation_reports", ["category_4_id"], :name => "index_quality_deviation_reports_on_category_4_id"
   add_index "quality_deviation_reports", ["category_5_id"], :name => "index_quality_deviation_reports_on_category_5_id"
   add_index "quality_deviation_reports", ["category_6_id"], :name => "index_quality_deviation_reports_on_category_6_id"
-  add_index "quality_deviation_reports", ["confirmed"], :name => "index_quality_deviation_reports_on_confirmed"
   add_index "quality_deviation_reports", ["doc_no"], :name => "index_quality_deviation_reports_on_doc_no"
   add_index "quality_deviation_reports", ["doc_user_id"], :name => "index_quality_deviation_reports_on_doc_user_id"
+  add_index "quality_deviation_reports", ["is_confirm"], :name => "index_quality_deviation_reports_on_is_confirm"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -296,10 +288,10 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.integer  "doc_user_id"
     t.datetime "doc_date"
     t.integer  "operator_id"
+    t.datetime "operation_date"
     t.integer  "assembly_tool_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.datetime "operation_date"
   end
 
   add_index "service_stock_orders", ["assembly_tool_id"], :name => "index_service_stock_orders_on_assembly_tool_id"
@@ -373,14 +365,11 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
   add_index "suppliers", ["type"], :name => "index_suppliers_on_type"
 
   create_table "technical_infos", :force => true do |t|
-    t.integer  "sharpen_time"
-    t.integer  "expected_quantity"
-    t.integer  "actual_quantity"
-    t.decimal  "expected_length"
-    t.decimal  "actual_length"
     t.integer  "tool_material_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "sharpen_time"
+    t.integer  "perform_quantity"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   add_index "technical_infos", ["tool_material_id"], :name => "index_technical_infos_on_tool_material_id"
@@ -390,14 +379,16 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.integer  "category_id"
     t.integer  "sub_category_id"
     t.string   "model"
-    t.boolean  "standardized"
     t.integer  "service_quantity"
-    t.boolean  "sharpen_part"
+    t.boolean  "is_standard"
+    t.boolean  "is_sharpen_part"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
 
   add_index "tool_materials", ["category_id"], :name => "index_tool_materials_on_category_id"
+  add_index "tool_materials", ["is_sharpen_part"], :name => "index_tool_materials_on_is_sharpen_part"
+  add_index "tool_materials", ["is_standard"], :name => "index_tool_materials_on_is_standard"
   add_index "tool_materials", ["model"], :name => "index_tool_materials_on_model"
   add_index "tool_materials", ["sub_category_id"], :name => "index_tool_materials_on_sub_category_id"
   add_index "tool_materials", ["tool_no"], :name => "index_tool_materials_on_tool_no"
@@ -407,23 +398,19 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.string   "part_no"
     t.integer  "category_id"
     t.integer  "sub_category_id"
+    t.boolean  "is_active"
     t.string   "model"
-    t.integer  "expected_sharpen_time"
-    t.integer  "actual_sharpen_time"
-    t.integer  "expected_quantity"
-    t.integer  "actual_quantity"
+    t.integer  "total_sharpen_time"
+    t.integer  "total_process_quantity"
     t.date     "effective_date"
     t.date     "expired_date"
     t.integer  "tool_material_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-    t.integer  "assembly_tool_item_id"
-    t.boolean  "in_service"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
-  add_index "tool_parts", ["assembly_tool_item_id"], :name => "index_tool_parts_on_assembly_tool_item_id"
   add_index "tool_parts", ["category_id"], :name => "index_tool_parts_on_category_id"
-  add_index "tool_parts", ["in_service"], :name => "index_tool_parts_on_in_service"
+  add_index "tool_parts", ["is_active"], :name => "index_tool_parts_on_is_active"
   add_index "tool_parts", ["model"], :name => "index_tool_parts_on_model"
   add_index "tool_parts", ["part_no"], :name => "index_tool_parts_on_part_no"
   add_index "tool_parts", ["sub_category_id"], :name => "index_tool_parts_on_sub_category_id"
@@ -434,6 +421,8 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.string   "type"
     t.integer  "tunning_work_order_id"
     t.integer  "operation_device_id"
+    t.integer  "operation_type_id"
+    t.integer  "operator_id"
     t.integer  "tool_part_id"
     t.integer  "expected_time"
     t.integer  "actual_time"
@@ -441,33 +430,31 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.integer  "actual_quantity"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
-    t.integer  "operation_type_id"
-    t.integer  "operator_id"
   end
 
   add_index "tunning_work_order_items", ["operation_device_id"], :name => "index_tunning_work_order_items_on_operation_device_id"
-  add_index "tunning_work_order_items", ["operation_type_id"], :name => "index_tunning_work_order_items_on_operation_type_id"
   add_index "tunning_work_order_items", ["operator_id"], :name => "index_tunning_work_order_items_on_operator_id"
   add_index "tunning_work_order_items", ["tool_part_id"], :name => "index_tunning_work_order_items_on_tool_part_id"
   add_index "tunning_work_order_items", ["tunning_work_order_id"], :name => "index_tunning_work_order_items_on_tunning_work_order_id"
   add_index "tunning_work_order_items", ["type"], :name => "index_tunning_work_order_items_on_type"
 
   create_table "tunning_work_orders", :force => true do |t|
-    t.date     "doc_date"
     t.integer  "doc_user_id"
+    t.boolean  "is_confirm"
+    t.integer  "assembly_tool_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-    t.integer  "assembly_tool_id"
-    t.boolean  "confirmed"
   end
 
   add_index "tunning_work_orders", ["assembly_tool_id"], :name => "index_tunning_work_orders_on_assembly_tool_id"
-  add_index "tunning_work_orders", ["confirmed"], :name => "index_tunning_work_orders_on_confirmed"
   add_index "tunning_work_orders", ["doc_user_id"], :name => "index_tunning_work_orders_on_doc_user_id"
+  add_index "tunning_work_orders", ["is_confirm"], :name => "index_tunning_work_orders_on_is_confirm"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "name",                   :default => ""
+    t.string   "nickname",               :default => ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -478,8 +465,6 @@ ActiveRecord::Schema.define(:version => 20120625103413) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "name"
-    t.string   "nickname"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
