@@ -30,15 +30,15 @@ class DataInjectionsController < ApplicationController
                                 :sub_category_id => sub_cat ? sub_cat.id : nil,
                                 :model => row[23],
                                 :service_quantity => row[31].to_f,
-                                :sharpen_part => row[33].to_i == 1,
-                                :standardized => row[28].to_i == 1
+                                :is_sharpen_part => row[33].to_i == 1,
+                                :is_standard => row[28].to_i == 1
                                )
           sti = tm.build_stocking_info(:current_quantity => row[3].to_i || 0)
           pui = tm.build_purchase_info(:purchase_no => row[1],
                                        :manufacturer_id => mnf ? mnf.id : nil,
                                        :agency_id => agc ? agc.id : nil,
                                       )
-          tei = tm.build_technical_info(:expected_quantity => row[25],
+          tei = tm.build_technical_info(:perform_quantity => row[25],
                                         :sharpen_time => 1
                                        )
           tm.save
@@ -58,7 +58,8 @@ class DataInjectionsController < ApplicationController
                               :tool_part_quantity => row[31],
                               :setting_device_id => std ? std.id : nil,
                               :setting_type_id => 1,
-                              :standard_setting_time => row[37].to_i || 0
+                              :setting_time => row[37].to_i || 0,
+                              :is_confirm => false
                              )
         at.engine_models << EngineModel.find_by_id(1) if row[5].to_i == 1
         at.engine_models << EngineModel.find_by_id(2) if row[6].to_i == 1
@@ -68,7 +69,7 @@ class DataInjectionsController < ApplicationController
         at.engine_models << EngineModel.find_by_id(6) if row[10].to_i == 1
         ati = at.items.build(:tool_material_id => tm ? tm.id : nil,
                              :quantity => row[31].to_i,
-                             :standard_sharpen_time => row[34].to_i || 0,
+                             :sharpen_time => row[34].to_i || 0,
                              :sharpen_device_id => shd ? shd.id : nil
                             )
         at.save

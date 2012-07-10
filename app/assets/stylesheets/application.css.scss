@@ -8,25 +8,12 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require bootstrap_and_overrides
  *= require bootstrap-datepicker
  *= require_self
 */
 
 @import "bootstrap";
 
-@media print {
-  body { background-color: #000; }
-  #container {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
-  #line-items {
-    page-break-before: always;
-  }
-}
 .footer {
   @extend .breadcrumb;
   @extend .footer;
@@ -49,20 +36,6 @@
     color:#999; line-height:100%;
     border-bottom:1px solid #ddd; padding-bottom:8px;
   }
-}
-.container { width:960px; }
-.container-fluid { padding:0; }
-.container-fluid > .sidebar {
-  position:absolute;
-  left:auto;
-  right:0;
-  top:0;
-  width: 240px;
-}
-
-.container-fluid > .content {
-   margin-left:0;
-   margin-right: 260px;
 }
 .content {
   background-color: #eee;
@@ -160,10 +133,6 @@
 
 .operation-group {
   @extend .btn-toolbar;
-/*
-  @extend .well;
-  @extend .form-actions;
-*/
 }
 .action-group {
   @extend .btn-group;
